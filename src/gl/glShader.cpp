@@ -36,11 +36,17 @@ glShader::glShader(GLenum type)
     shaderId = glCreateShader(type);
 }
 
+/**
+* Destructs
+*/
 glShader::~glShader()
 {
     glDeleteShader(shaderId);
 }
     
+/**
+* Compile Shader
+*/
 void glShader::compile(const char* src)
 {
     glShaderSource(shaderId, 1, &src, NULL);

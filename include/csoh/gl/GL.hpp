@@ -24,6 +24,7 @@
 #ifndef __CSOH_GL_HPP__
 #define __CSOH_GL_HPP__
 
+//OpenGL Includes with GLEW
 #include <GL/glew.h>
 #include <GL/gl.h>
 #include <GL/glu.h>

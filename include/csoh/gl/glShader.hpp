@@ -59,6 +59,9 @@ public:
     * Compile Shader
     */
     void compile(const char* src); 
+    
+    
+    //TODO Parameter Handling
 };
 
 /**

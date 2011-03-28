@@ -40,9 +40,13 @@ private:
         
 public:
     ShaderProgram();
+    
     ~ShaderProgram();
     
     void load(const char* vertex, const char* fragment);
+    
+    //TODO Load From File
+    
     void use();
         
 };

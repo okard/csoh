@@ -85,7 +85,7 @@ void Timer::start()
 }
 
 /**
-* Stop timer
+* Stop the timer
 */
 float Timer::stop()
 {
@@ -98,7 +98,7 @@ float Timer::stop()
 }
 
 /**
-* Reset timer
+* Reset the timer
 */
 void Timer::reset()
 {

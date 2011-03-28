@@ -23,7 +23,9 @@
 */
 #include <csoh/gl/glTexture.hpp>
 
+using csoh::Image;
 using csoh::glTexture;
+
 
 /**
 * Create a new OpenGL Texture
@@ -47,9 +49,30 @@ glTexture::~glTexture()
 */
 void glTexture::bind()
 {
+    //TODO Make GL Texture Type dynamic
     glBindTexture(GL_TEXTURE_2D, texId);
 }
 
+
+/**
+* Load from Image
+*/
+void glTexture::load(Image* img)
+{
+    bind();
+    
+    //glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);  
+    //glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);   
+    //glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, );
+}
+
+
+/**
+* Clears the texture
+*/
+void glTexture::clear()
+{
+}
 
 
 /*
@@ -59,7 +82,7 @@ glTexParameteri
 
 void glTexImage2D(  
     GLenum      target, 
-    GLint   level, 
+    GLint   level,          //Level n ist die n-te Mipmap-Reduzierung des Bildes.
     GLint   internalFormat, 
     GLsizei     width, 
     GLsizei     height, 

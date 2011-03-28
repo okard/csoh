@@ -24,7 +24,9 @@
 #ifndef __CSOH_GLTEXTURE_HPP__
 #define __CSOH_GLTEXTURE_HPP__
 
-#include "GL.hpp"
+#include <csoh/Image.hpp>
+#include <csoh/gl/GL.hpp>
+
 
 namespace csoh {
  
@@ -51,6 +53,16 @@ public:
     * Bind Texture
     */
     void bind();
+    
+    /**
+    * Load from Image
+    */
+    void load(Image* img);
+    
+    /**
+    * Clears the texture
+    */
+    void clear();
     
     //set(void[])
     //config 

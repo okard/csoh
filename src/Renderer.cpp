@@ -68,3 +68,12 @@ void Renderer::startRender()
     render.renderStart();
 }
 
+
+/**
+* Finshing Render Scene
+*/
+void Renderer::finishRender()
+{
+    //post rendering effects?
+}
+

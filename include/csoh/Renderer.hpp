@@ -42,6 +42,9 @@ private:
     /// Timer
     Timer timer;
     
+    //Shared Texture Manager?
+    //Textures are for one Context?
+    
 public:
     /**
     * Create new renderer
@@ -68,6 +71,11 @@ public:
     * Start Render Scene
     */
     void startRender();
+    
+    /**
+    * Finshing Render Scene
+    */
+    void finishRender();
     
     //Interface for SceneManager?
     // Rederer.render(Scene->CreateRenderList(Camera))

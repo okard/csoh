@@ -21,43 +21,25 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
 */
-#include <csoh/Shader.hpp>
+#ifndef __CSOH_FIMAGE_HPP__
+#define __CSOH_FIMAGE_HPP__
 
-using csoh::ShaderProgram;
+#include <csoh/Image.hpp>
 
-/**
-* Create a new ShaderProgram with Vertex and Fragment Pointer
-*/
-ShaderProgram::ShaderProgram()
-    : vertex(GL_VERTEX_SHADER), fragment(GL_FRAGMENT_SHADER)
-{
-}
+namespace csoh {
+
 
 /**
-* Destruct
+* Image Handler using the FreeImage Library 
 */
-ShaderProgram::~ShaderProgram()
+class fImage : public Image
 {
-}
+private:
     
-/**
-* Load Shader
-*/
-void ShaderProgram::load(const char* vertexShader, const char* fragmentShader)
-{
-    vertex.compile(vertexShader);
-    fragment.compile(fragmentShader);
+public:
     
-    program.attach(&vertex);
-    program.attach(&fragment);
-    program.link();
-}
+};
+     
+} //end namespace csoh
 
-/**
-* Use Program now
-*/
-void ShaderProgram::use()
-{
-    //TODO Check State before use
-    program.use();
-}
+#endif // __CSOH_FIMAGE_HPP__
