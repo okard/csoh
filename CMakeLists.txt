@@ -12,6 +12,7 @@ set(CSOH_SRC
     src/Math.cpp
     src/Renderer.cpp
     src/Timer.cpp
+    src/Shader.cpp
     src/gl/glTexture.cpp
     src/gl/glShader.cpp
     src/gl/glRenderer.cpp
@@ -20,3 +21,7 @@ set(CSOH_SRC
 
 add_library(csoh ${CSOH_SRC})
 target_link_libraries(csoh "rt" "GLEW" ${OPENGL_LIBRARIES})
+
+# test directory
+add_subdirectory(tests)
+

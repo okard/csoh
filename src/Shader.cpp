@@ -21,28 +21,33 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
 */
-#ifndef __CSOH_IMAGE_HPP__
-#define __CSOH_IMAGE_HPP__
+#include <csoh/Shader.hpp>
 
-
-namespace csoh {
+using csoh::ShaderProgram;
 
 /**
-* Represents a Image
-* Interface for image loading from hdd
+*
 */
-class Image
+ShaderProgram::ShaderProgram()
+    : vertex(GL_VERTEX_SHADER), fragment(GL_FRAGMENT_SHADER)
 {
-    //size widht/height
-    //pixel size
-    //compression (S3TC ...)
-    
-    //read 
-    
-};
-    
-    
-} //end namespace csoh
+}
 
+ShaderProgram::~ShaderProgram()
+{
+}
+    
+void ShaderProgram::load(const char* vertexShader, const char* fragmentShader)
+{
+    vertex.compile(vertexShader);
+    fragment.compile(fragmentShader);
+    
+    program.attach(&vertex);
+    program.attach(&fragment);
+    program.link();
+}
 
-#endif // __CSOH_IMAGE_HPP__
+void ShaderProgram::use()
+{
+    program.use();
+}

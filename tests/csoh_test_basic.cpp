@@ -21,28 +21,62 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
 */
-#ifndef __CSOH_IMAGE_HPP__
-#define __CSOH_IMAGE_HPP__
+
+#include <csoh/Renderer.hpp>
+
+#include <GL/freeglut.h>
+
+using csoh::Renderer;
 
 
-namespace csoh {
+void keyboard(unsigned char key, int x, int y);
+void display();
+void reshape(int width, int height);
+
+Renderer rend;
 
 /**
-* Represents a Image
-* Interface for image loading from hdd
+* Main Function
 */
-class Image
+int main(int argc, char *argv[])
 {
-    //size widht/height
-    //pixel size
-    //compression (S3TC ...)
+    glutInit(&argc, argv);
+    glutCreateWindow("CSOH Test");
+    glutReshapeWindow(1024, 768);
     
-    //read 
+    rend.init();
     
-};
+    glutReshapeFunc(&reshape);
+    glutKeyboardFunc(&keyboard);
+    glutDisplayFunc(&display);
+    glutMainLoop();
     
-    
-} //end namespace csoh
+    return 0;
+}
 
+/**
+* Keyboard Handler
+*/
+void keyboard(unsigned char key, int x, int y)
+{
+    glutLeaveMainLoop();
+}
 
-#endif // __CSOH_IMAGE_HPP__
+/**
+* Display Function
+*/
+void display()
+{
+    rend.startRender();
+    
+    
+    glutSwapBuffers();
+}
+
+/**
+* Reshape Function
+*/
+void reshape(int width, int height)
+{
+    rend.resize(0, 0, width, height);
+}

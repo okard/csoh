@@ -22,8 +22,10 @@
     THE SOFTWARE.
 */
 #include <csoh/gl/glRenderer.hpp>
+#include <csoh/Exception.hpp>
 
 using csoh::glRenderer;
+using csoh::Exception;
 
 /**
 * Create new OpenGL renderer
@@ -46,6 +48,25 @@ glRenderer::~glRenderer()
 */
 void glRenderer::initialize()
 {
+    static bool static_init = false;
+    
+    if(!static_init)
+    {
+        static_init = true;
+        
+        //Initialize GLEW Library
+        GLenum err = glewInit();
+        if (GLEW_OK != err)
+        {
+            throw Exception(reinterpret_cast<const char*>(glewGetErrorString(err)));
+        }
+        
+        
+        if (GLEW_VERSION_3_2)
+        {
+            //check support for OpenGL here
+        }
+    }
     //Check for OpenGL Context
     //at this moment a OpenGL Context must exist
     //when embedding glew init glew here?
