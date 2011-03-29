@@ -21,45 +21,37 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
 */
-#ifndef __CSOH_SHADER_HPP__
-#define __CSOH_SHADER_HPP__
+#include <csoh/Utils.hpp>
 
-#include <csoh/gl/glShader.hpp>
+#include <iostream>
+#include <fstream>
 
-namespace csoh {
+using namespace csoh;
+
+using std::filebuf;
+using std::ifstream;
 
 /**
-* A Complete Shader Program
+* Read in a file, delete after usage
 */
-class ShaderProgram
+char* readfile(const char* filename)
 {
-private:
-    /// Vertex Shader
-    glShader vertex;
-    /// Fragment Shader
-    glShader fragment;
-    /// Shader Program
-    glProgram program;
-        
-public:
-    /// Create new Shader
-    ShaderProgram();
+    filebuf *pbuf;
+    ifstream filestr;
     
-    /// Destruct shader
-    ~ShaderProgram();
-    
-    /// Load Shader from Memory
-    void load(const char* vertex, const char* fragment);
-    
-    /// Load Shader from File
-    void loadFromFile(const char* vertexShaderFile, const char* fragmentShaderFile);
-    
-    /// Activate Shader Program
-    void use();
-        
-};
-    
-    
-} // end namespace csoh
+    //open file
+    filestr.open(filename);
+    // get pointer to associated buffer object
+    pbuf=filestr.rdbuf();
+    std::streampos size =pbuf->pubseekoff (0, std::ios::end, std::ios::in);
+    pbuf->pubseekpos (0, std::ios::in);
 
-#endif // __CSOH_SHADER_HPP__
+    // allocate memory to contain file data
+    char* buffer=new char[size];
+    // get file data  
+    pbuf->sgetn (buffer,size);
+
+    filestr.close();
+    
+    return buffer;
+}

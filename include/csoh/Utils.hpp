@@ -21,45 +21,18 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
 */
-#ifndef __CSOH_SHADER_HPP__
-#define __CSOH_SHADER_HPP__
+#ifndef __CSOH_UTILS_HPP__
+#define __CSOH_UTILS_HPP__
 
-#include <csoh/gl/glShader.hpp>
 
 namespace csoh {
+    
+///Read in a file, delete after usage
+char* readfile(const char* filename);    
+    
+    
+    
+} //end namespace csoh
 
-/**
-* A Complete Shader Program
-*/
-class ShaderProgram
-{
-private:
-    /// Vertex Shader
-    glShader vertex;
-    /// Fragment Shader
-    glShader fragment;
-    /// Shader Program
-    glProgram program;
-        
-public:
-    /// Create new Shader
-    ShaderProgram();
-    
-    /// Destruct shader
-    ~ShaderProgram();
-    
-    /// Load Shader from Memory
-    void load(const char* vertex, const char* fragment);
-    
-    /// Load Shader from File
-    void loadFromFile(const char* vertexShaderFile, const char* fragmentShaderFile);
-    
-    /// Activate Shader Program
-    void use();
-        
-};
-    
-    
-} // end namespace csoh
 
-#endif // __CSOH_SHADER_HPP__
+#endif

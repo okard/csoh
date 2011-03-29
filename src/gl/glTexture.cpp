@@ -71,12 +71,12 @@ void glTexture::load(Image* img)
     GLenum format =  GL_BGR;
     GLenum type = GL_UNSIGNED_BYTE;
     
+    //for texture parameter
     //glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);  
     //glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);   
     
+    //set texture data
     glTexImage2D(GL_TEXTURE_2D, mipmapLevel, internalFormat, img->width(), img->height(), border, format, type, img->data());  
-    
-    //glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, );
 }
 
 
@@ -85,26 +85,8 @@ void glTexture::load(Image* img)
 */
 void glTexture::clear()
 {
+    
 }
-
-
-/*
-Settings
-
-glTexParameteri 
-
-void glTexImage2D(  
-    GLenum      target, 
-    GLint   level,          //Level n ist die n-te Mipmap-Reduzierung des Bildes.
-    GLint   internalFormat, 
-    GLsizei     width, 
-    GLsizei     height, 
-    GLint   border, 
-    GLenum      format, 
-    GLenum      type, 
-    const GLvoid *      data);
-
-*/
 
 
 

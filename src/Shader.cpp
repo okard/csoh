@@ -23,6 +23,8 @@
 */
 #include <csoh/Shader.hpp>
 
+#include <csoh/Utils.hpp>
+
 using csoh::ShaderProgram;
 
 /**
@@ -51,6 +53,21 @@ void ShaderProgram::load(const char* vertexShader, const char* fragmentShader)
     program.attach(&vertex);
     program.attach(&fragment);
     program.link();
+}
+
+/**
+* Load Shader from File
+*/
+void ShaderProgram::loadFromFile(const char* vertexShaderFile, const char* fragmentShaderFile)
+{
+    //TODO Use ScopePtr?
+    char* vertexShader = csoh::readfile(vertexShaderFile);
+    char* fragmentShader = csoh::readfile(vertexShaderFile);
+    
+    load(vertexShader, fragmentShader);
+    
+    delete vertexShader;
+    delete fragmentShader;
 }
 
 /**

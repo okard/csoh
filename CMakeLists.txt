@@ -15,6 +15,7 @@ set(CSOH_SRC
     src/Renderer.cpp
     src/Shader.cpp
     src/Timer.cpp
+    src/Utils.cpp
     src/gl/glTexture.cpp
     src/gl/glShader.cpp
     src/gl/glRenderer.cpp

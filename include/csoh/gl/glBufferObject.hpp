@@ -26,19 +26,18 @@
 
 #include "GL.hpp"
 
-
-//TODO Support for Element Buffer
-
 namespace csoh {
 
 /**
-* OOP Wrapper for Buffer Object
+* OOP Wrapper for Buffer Objects
 */
 class glBufferObject
 {
 private:
+    /// Buffer id
     GLuint vboId;
-    ///
+    
+    /// Buffer Type
     GLenum type; 
 public:
     /**

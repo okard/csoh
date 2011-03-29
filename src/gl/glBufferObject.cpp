@@ -67,13 +67,10 @@ void glBufferObject::setBufferData(const void *bufferData, GLsizei bufferSize)
     glBufferData(type, bufferSize, bufferData, GL_STATIC_DRAW);
 }
 
-//glDrawArrays
 
-//glBufferDataARB(GL_ARRAY_BUFFER, size, NULL, GL_STATIC_DRAW);
-//glBufferDataARB
-//render function?
 // glVertexPointer(4, GL_FLOAT, STRIDE, POS_OFFSET);
 // glColorPointer(4, GL_FLOAT, STRIDE, COL_OFFSET);
 // glDrawElements
+// glDrawArrays
 
 
