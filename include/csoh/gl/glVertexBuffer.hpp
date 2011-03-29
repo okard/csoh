@@ -26,6 +26,9 @@
 
 #include "GL.hpp"
 
+
+//TODO Support for Element Buffer
+
 namespace csoh {
 
 /**
@@ -35,6 +38,8 @@ class glVertexBuffer
 {
 private:
     GLuint vboId;
+    ///
+    GLenum type; 
 public:
     /**
     * Create new Vertex Buffer Object
@@ -51,7 +56,11 @@ public:
     */
     void bind();
     
-    ///TODO SetVertexBufferData
+    /**
+    * Set Buffer Data
+    */
+    void setBufferData(const void *bufferData, GLsizei bufferSize);
+ 
 };
     
 } //end namespace csoh

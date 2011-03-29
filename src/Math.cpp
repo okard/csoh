@@ -23,7 +23,7 @@
 */
 #include <csoh/Math.hpp>
 
-//TODO add SSE Implementation
+//TODO add SSE Implementation?
 
 using csoh::Vector3f;
 
@@ -74,7 +74,7 @@ Vector3f Vector3f::operator+(const Vector3f& vec)
 Vector3f& Vector3f::operator+=(const Vector3f& vec)
 {
     val[vx] += vec.val[vx];
-    val[vy] += vec.val[vy];
+    val[vy] += vec.val[vy];    
     val[vz] += vec.val[vz];
     
     return *this;

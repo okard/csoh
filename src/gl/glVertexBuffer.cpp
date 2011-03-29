@@ -46,9 +46,20 @@ glVertexBuffer::~glVertexBuffer()
 */
 void glVertexBuffer::bind()
 {
-    glBindBufferARB(GL_ARRAY_BUFFER, vboId);
-    glEnableClientState(GL_VERTEX_ARRAY);
+    glBindBuffer(GL_ARRAY_BUFFER, vboId);
 }
+
+
+/**
+* Set Buffer Data
+*/
+void glVertexBuffer::setBufferData(const void *bufferData, GLsizei bufferSize)
+{
+    //TODO Make more dynamic GL_ARRAY_BUFFER / GL_ELEMENT_ARRAY_BUFFER
+    glBufferData(GL_ARRAY_BUFFER, bufferSize, bufferData, GL_STATIC_DRAW);
+}
+
+//glDrawArrays
 
 //glBufferDataARB(GL_ARRAY_BUFFER, size, NULL, GL_STATIC_DRAW);
 //glBufferDataARB

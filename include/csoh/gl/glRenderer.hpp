@@ -36,6 +36,7 @@ class glRenderer
 private:
     /// Is Render Initialized
     bool initialized;
+    
 public:
 
     /**
@@ -63,7 +64,6 @@ public:
     */
     void renderStart();
     
-    //renderStart
     //renderFinish
     
     //primitive render interfaces

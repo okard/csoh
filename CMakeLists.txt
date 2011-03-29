@@ -6,13 +6,15 @@ project(csoh)
 
 
 include_directories(include)
+include_directories(.)
 find_package(OpenGL)
 
 set(CSOH_SRC
+    src/Image.cpp
     src/Math.cpp
     src/Renderer.cpp
-    src/Timer.cpp
     src/Shader.cpp
+    src/Timer.cpp
     src/gl/glTexture.cpp
     src/gl/glShader.cpp
     src/gl/glRenderer.cpp

@@ -23,29 +23,51 @@
 */
 
 #include <csoh/Renderer.hpp>
+#include <csoh/Image.hpp>
+#include <ext/freeimage/fImage.hpp>
 
 #include <GL/freeglut.h>
 
 using csoh::Renderer;
+using csoh::fImage;
 
-
+// keyboard events
 void keyboard(unsigned char key, int x, int y);
+//display function
 void display();
+//reshpare function
 void reshape(int width, int height);
 
-Renderer rend;
+static struct
+{
+    //the renderer
+    Renderer rend;
+    //Image
+    fImage texture;
+} base;
 
 /**
 * Main Function
 */
 int main(int argc, char *argv[])
 {
+    //Initialize GLUT
     glutInit(&argc, argv);
     glutCreateWindow("CSOH Test");
     glutReshapeWindow(1024, 768);
     
-    rend.init();
+    //initializes csoh rendering engine
+     base.rend.init();
     
+    base.texture.read("data/texture1.png");
+    
+    //glTexture tex;
+    //tex.load(&base.texture);
+    
+    //create scene graph here
+    //add camera
+    
+    //Set Callback Function and start main loop
     glutReshapeFunc(&reshape);
     glutKeyboardFunc(&keyboard);
     glutDisplayFunc(&display);
@@ -67,9 +89,11 @@ void keyboard(unsigned char key, int x, int y)
 */
 void display()
 {
-    rend.startRender();
+    //start rendering a frame
+    base.rend.startRender();
+    base.rend.finishRender();
     
-    
+    //swap buffer
     glutSwapBuffers();
 }
 
@@ -78,5 +102,6 @@ void display()
 */
 void reshape(int width, int height)
 {
-    rend.resize(0, 0, width, height);
+    //resize the rendering interface
+    base.rend.resize(0, 0, width, height);
 }

@@ -21,38 +21,36 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
 */
-#ifndef __CSOH_FIMAGE_HPP__
-#define __CSOH_FIMAGE_HPP__
-
 #include <csoh/Image.hpp>
-#include <FreeImage.h>
 
-namespace csoh {
+using csoh::Image;
 
 
-/**
-* Image Handler using the FreeImage Library 
-*/
-class fImage : public Image
+
+/// Get Width
+int Image::width() const
 {
-private:
-    //pointer to the image, once loaded
-    FIBITMAP *dib;
-    //pointer to the image data
-    BYTE* bits;
-    
-public:
-    /// Read in image
-    virtual void read(const char* filename);
-    
-    /// Clear Memory
-    virtual void clear();
-    
-    /// Get Memory
-    virtual inline void* data() const;
-    
-};
-     
-} //end namespace csoh
+    return mWidth;
+}
 
-#endif // __CSOH_FIMAGE_HPP__
+/// Gt Height
+int Image::height() const
+{
+    return mHeight;
+}
+
+/// Read in image
+void read(const char* filename)
+{
+}
+
+/// Clear Memory
+void Image::clear()
+{
+}
+
+/// Get Memory
+inline void* Image::data() const
+{
+    return 0;
+}

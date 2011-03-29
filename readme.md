@@ -7,6 +7,7 @@ Directory Layout
 * src/ contains the source files
 * ext/ contains some extension, e.g. for using freeimage for texture loading
 * tests/ contains some test and example files
+* data/ contains data files models, textures for test and example applications
 
 TODOs
 --------------

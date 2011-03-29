@@ -23,6 +23,10 @@
 */
 #include <csoh/gl/glShader.hpp>
 
+#include <csoh/Exception.hpp>
+#include <iostream>
+
+using csoh::Exception;
 using csoh::glShader;
 using csoh::glProgram;
 
@@ -51,6 +55,16 @@ void glShader::compile(const char* src)
 {
     glShaderSource(shaderId, 1, &src, NULL);
     glCompileShader(shaderId);
+    
+    GLint shaderValid;
+    
+    glGetShaderiv(shaderId, GL_COMPILE_STATUS, &shaderValid);
+    if (!shaderValid) 
+    {
+        std::cerr << "Failed to compile: \n" << src << std::endl;
+        //TODO get error log
+        throw Exception("Failed to compile shader see stderr for more information");
+    }
 }
 
 
@@ -92,6 +106,16 @@ void glProgram::detach(glShader* shader)
 void glProgram::link()
 {
     glLinkProgram(progId);
+    
+    GLint programValid;
+    
+    glGetProgramiv(progId, GL_LINK_STATUS, &programValid);
+    if (!programValid) 
+    {
+        std::cerr << "Failed to link shade program:\n" << std::endl;
+        //TODO get error log
+        throw Exception("Failed to link shader program see stderr for more information");
+    }
 }
 
 /**

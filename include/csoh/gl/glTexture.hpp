@@ -31,7 +31,7 @@
 namespace csoh {
  
 /**
-* OpenGL Texture 
+* OpenGL 2D Texture 
 */
 class glTexture
 {

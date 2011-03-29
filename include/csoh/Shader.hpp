@@ -34,8 +34,11 @@ namespace csoh {
 class ShaderProgram
 {
 private:
+    /// Vertex Shader
     glShader vertex;
+    /// Fragment Shader
     glShader fragment;
+    /// Shader Program
     glProgram program;
         
 public:

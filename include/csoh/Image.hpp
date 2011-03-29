@@ -35,11 +35,29 @@ class Image
 {
 private:
     
+protected:
+    int mWidth;
+    int mHeight;
     
 public:
     
-    //int width();
-    //int height();
+    /// Get Width
+    int width() const;
+    
+    /// Gt Height
+    int height() const;
+    
+    /// Read in image
+    virtual void read(const char* filename) = 0;
+    
+    /// Clear Memory
+    virtual void clear() = 0;
+    
+    /// Get Memory
+    virtual inline void* data() const = 0;
+    
+    
+    //data size
     
     //xxx format();
     

@@ -56,13 +56,26 @@ void glTexture::bind()
 
 /**
 * Load from Image
+* Binds texture automatically
 */
 void glTexture::load(Image* img)
 {
     bind();
+
+    //TODO Check if img is valid
+    //TODO prepare parameter
+    
+    GLint mipmapLevel = 0;
+    GLint internalFormat = GL_RGB8;
+    GLint border = 0;
+    GLenum format =  GL_BGR;
+    GLenum type = GL_UNSIGNED_BYTE;
     
     //glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);  
     //glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);   
+    
+    glTexImage2D(GL_TEXTURE_2D, mipmapLevel, internalFormat, img->width(), img->height(), border, format, type, img->data());  
+    
     //glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, );
 }
 
