@@ -36,7 +36,10 @@ class Image
 private:
     
 protected:
+    /// Image Width
     int mWidth;
+    
+    /// Image Height
     int mHeight;
     
 public:
@@ -54,16 +57,13 @@ public:
     virtual void clear() = 0;
     
     /// Get Memory
-    virtual inline void* data() const = 0;
+    virtual void* data() const = 0;
     
     
     //data size
-    
     //xxx format();
-    
     //pixel size
     //compression (S3TC ...)
-    
     //read    
 };
     

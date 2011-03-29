@@ -50,7 +50,7 @@ void Image::clear()
 }
 
 /// Get Memory
-inline void* Image::data() const
+void* Image::data() const
 {
     return 0;
 }

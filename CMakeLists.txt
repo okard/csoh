@@ -18,9 +18,10 @@ set(CSOH_SRC
     src/gl/glTexture.cpp
     src/gl/glShader.cpp
     src/gl/glRenderer.cpp
-    src/gl/glVertexBuffer.cpp
+    src/gl/glBufferObject.cpp
     )
 
+add_definitions(-DCSOH_LIBRARY)
 add_library(csoh ${CSOH_SRC})
 target_link_libraries(csoh "rt" "GLEW" ${OPENGL_LIBRARIES})
 

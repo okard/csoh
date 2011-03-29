@@ -32,9 +32,9 @@
 namespace csoh {
 
 /**
-* OOP Wrapper for Vertex Buffer Object
+* OOP Wrapper for Buffer Object
 */
-class glVertexBuffer
+class glBufferObject
 {
 private:
     GLuint vboId;
@@ -44,12 +44,12 @@ public:
     /**
     * Create new Vertex Buffer Object
     */
-    glVertexBuffer();
+    glBufferObject(GLenum type);
     
     /**
     * Destructs Vertex Buffer Object
     */
-    ~glVertexBuffer();
+    ~glBufferObject();
     
     /**
     * Bind Vertex Buffer

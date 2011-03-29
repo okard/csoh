@@ -21,22 +21,25 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
 */
-#include <csoh/gl/glVertexBuffer.hpp>
+#include <csoh/gl/glBufferObject.hpp>
 
-using csoh::glVertexBuffer;
+using csoh::glBufferObject;
 
 /**
 * Create new Vertex Buffer Object
 */
-glVertexBuffer::glVertexBuffer()
+glBufferObject::glBufferObject(GLenum type)
+    : type(type)
 {
     glGenBuffers(1, &vboId);
+    
+    //TODO check for GL_ARRAY_BUFFER,GL_ELEMENT_ARRAY_BUFFER, GL_PIXEL_PACK_BUFFER, or GL_PIXEL_UNPACK_BUFFER.          
 }
     
 /**
 * Destructs Vertex Buffer Object
 */
-glVertexBuffer::~glVertexBuffer()
+glBufferObject::~glBufferObject()
 {
     glDeleteBuffers(1, &vboId );
 }
@@ -44,19 +47,24 @@ glVertexBuffer::~glVertexBuffer()
 /**
 * Bind Vertex Buffer
 */
-void glVertexBuffer::bind()
+void glBufferObject::bind()
 {
-    glBindBuffer(GL_ARRAY_BUFFER, vboId);
+    glBindBuffer(type, vboId);
 }
 
 
 /**
 * Set Buffer Data
 */
-void glVertexBuffer::setBufferData(const void *bufferData, GLsizei bufferSize)
+void glBufferObject::setBufferData(const void *bufferData, GLsizei bufferSize)
 {
-    //TODO Make more dynamic GL_ARRAY_BUFFER / GL_ELEMENT_ARRAY_BUFFER
-    glBufferData(GL_ARRAY_BUFFER, bufferSize, bufferData, GL_STATIC_DRAW);
+    //TODO Make more dynamic buffer mode? static, dynamic
+    
+    // GL_STREAM_DRAW, GL_STREAM_READ, GL_STREAM_COPY, 
+    // GL_STATIC_DRAW, GL_STATIC_READ, GL_STATIC_COPY, 
+    // GL_DYNAMIC_DRAW, GL_DYNAMIC_READ, or GL_DYNAMIC_COPY.
+                
+    glBufferData(type, bufferSize, bufferData, GL_STATIC_DRAW);
 }
 
 //glDrawArrays

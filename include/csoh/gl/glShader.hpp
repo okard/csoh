@@ -60,6 +60,10 @@ public:
     */
     void compile(const char* src); 
     
+    //glGetUniformLocation
+    //glGetAttribLocation 
+    
+    //glUniform1f
     
     //TODO Parameter Handling
 };
@@ -73,7 +77,7 @@ private:
     /// Program Id
     GLint progId;
     
-    ///TODO Internal State tracker?
+    ///TODO Internal State tracker? Empty, Pending, Valid
     
 public:
     /**
