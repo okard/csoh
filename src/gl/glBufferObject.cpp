@@ -49,28 +49,47 @@ glBufferObject::~glBufferObject()
 */
 void glBufferObject::bind()
 {
+    //TODO Check if already binded
     glBindBuffer(type, vboId);
 }
-
 
 /**
 * Set Buffer Data
 */
-void glBufferObject::setBufferData(const void *bufferData, GLsizei bufferSize)
-{
-    //TODO Make more dynamic buffer mode? static, dynamic
-    
-    // GL_STREAM_DRAW, GL_STREAM_READ, GL_STREAM_COPY, 
-    // GL_STATIC_DRAW, GL_STATIC_READ, GL_STATIC_COPY, 
-    // GL_DYNAMIC_DRAW, GL_DYNAMIC_READ, or GL_DYNAMIC_COPY.
-                
-    glBufferData(type, bufferSize, bufferData, GL_STATIC_DRAW);
+void glBufferObject::setBufferData(const void *bufferData, GLsizei bufferSize, GLenum usage)
+{          
+    bind();
+    glBufferData(type, bufferSize, bufferData, usage);
 }
 
+/**
+* Update Buffer Data
+*/
+void glBufferObject::updateBufferData(GLintptr  offset, const void *bufferData, GLsizei bufferSize)
+{
+    bind();
+    glBufferSubData(type, offset,  bufferSize,  bufferData);
+}
 
-// glVertexPointer(4, GL_FLOAT, STRIDE, POS_OFFSET);
-// glColorPointer(4, GL_FLOAT, STRIDE, COL_OFFSET);
-// glDrawElements
-// glDrawArrays
+/**
+* Map Buffer
+* GL_READ_ONLY, GL_WRITE_ONLY, GL_READ_WRITE
+*/
+void* glBufferObject::map(GLenum  access)
+{
+    bind();
+    return glMapBuffer(type, access);
+}
 
+/**
+* Unmap Buffer
+*/
+void glBufferObject::unmap()
+{
+    bind();
+    glUnmapBuffer(type);
+}
 
+    
+    
+    

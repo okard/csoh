@@ -56,6 +56,9 @@ public:
     
     /// Activate Shader Program
     void use();
+    
+    
+    //TODO Parameter Handling
         
 };
     

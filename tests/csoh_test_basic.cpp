@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
     glutReshapeWindow(1024, 768);
     
     //initializes csoh rendering engine
-     base.rend.init();
+    base.rend.init();
     
     base.texture.read("data/texture1.png");
     

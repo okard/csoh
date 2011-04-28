@@ -100,7 +100,8 @@ private:
     float val[3][3];
     
 public:
-    
+    //index access
+    //multiplication
 };
 
 
@@ -110,6 +111,7 @@ public:
 class Matrix4f
 {
 private:
+    float val[4][4];
     
 public:
     

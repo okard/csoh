@@ -21,65 +21,48 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
 */
-#ifndef __CSOH_GLVERTEXBUFFER_HPP__
-#define __CSOH_GLVERTEXBUFFER_HPP__
-
-#include "GL.hpp"
+#ifndef __CSOH_VERTEX_HPP__
+#define __CSOH_VERTEX_HPP__
 
 namespace csoh {
 
+
 /**
-* OOP Wrapper for Buffer Objects
+* Simple Vertex Structure
 */
-class glBufferObject
-{
-private:
-    /// Buffer id
-    GLuint vboId;
-    
-    /// Buffer Type
-    GLenum type; 
-public:
-    
-
-    /**
-    * Create new Vertex Buffer Object
-    */
-    glBufferObject(GLenum type);
-    
-    /**
-    * Destructs Vertex Buffer Object
-    */
-    ~glBufferObject();
-    
-    /**
-    * Bind Vertex Buffer
-    */
-    void bind();
-    
-    /**
-    * Set Buffer Data
-    */
-    void setBufferData(const void *bufferData, GLsizei bufferSize, GLenum usage);
-    
-    /**
-    * Update Buffer Data
-    */
-    void updateBufferData(GLintptr  offset, const void *bufferData, GLsizei bufferSize);
+struct SV
+{  
+    //vertex
+    float x, y, z;
+};  
     
     
-    /**
-    * Map Buffer
-    */
-    void* map(GLenum  access);
-
-    /**
-    * Unmap Buffer
-    */
-    void unmap();
+/**
+* Vertex Structure with textcoords
+*/
+struct VT
+{  
+    //vertex
+    float x, y, z;
+    //textcoord
+    float s0, t0;
+};    
+    
+    
+/**
+* Vertex Structure with normal and textcoords
+*/
+struct VNT
+{  
+    //vertex
+    float x, y, z;
+    //normal
+    float nx, ny, nz;
+    //textcoord
+    float s0, t0;
 };
-    
-} //end namespace csoh
 
 
-#endif //__CSOH_GLVERTEXBUFFER_HPP__
+} // end namespace csoh
+ 
+#endif // __CSOH_VERTEX_HPP__

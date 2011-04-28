@@ -60,9 +60,6 @@ public:
     */
     void compile(const char* src); 
     
-    //glGetUniformLocation
-    //glGetAttribLocation 
-    
     //glUniform1f
     
     //TODO Parameter Handling
@@ -109,6 +106,16 @@ public:
     * Use shader
     */
     void use();
+    
+    /**
+    * Get uniform parameter location
+    */
+    GLint GetUniformLocation(const char* name);
+    
+    /**
+    * Get attrib parameter location
+    */
+    GLint GetAttribLocation(const char* name);
 };
     
     

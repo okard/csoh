@@ -21,65 +21,24 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
 */
-#ifndef __CSOH_GLVERTEXBUFFER_HPP__
-#define __CSOH_GLVERTEXBUFFER_HPP__
+#ifndef __CSOH_GLSTATE_HPP__
+#define __CSOH_GLSTATE_HPP__
 
-#include "GL.hpp"
 
 namespace csoh {
 
 /**
-* OOP Wrapper for Buffer Objects
+* Cache OpenGL States to minimize OpenGL calls
 */
-class glBufferObject
+struct glState
 {
-private:
-    /// Buffer id
-    GLuint vboId;
+    //shader program
+    //binded texture
+    //glEnabled/Disabled
     
-    /// Buffer Type
-    GLenum type; 
-public:
-    
-
-    /**
-    * Create new Vertex Buffer Object
-    */
-    glBufferObject(GLenum type);
-    
-    /**
-    * Destructs Vertex Buffer Object
-    */
-    ~glBufferObject();
-    
-    /**
-    * Bind Vertex Buffer
-    */
-    void bind();
-    
-    /**
-    * Set Buffer Data
-    */
-    void setBufferData(const void *bufferData, GLsizei bufferSize, GLenum usage);
-    
-    /**
-    * Update Buffer Data
-    */
-    void updateBufferData(GLintptr  offset, const void *bufferData, GLsizei bufferSize);
-    
-    
-    /**
-    * Map Buffer
-    */
-    void* map(GLenum  access);
-
-    /**
-    * Unmap Buffer
-    */
-    void unmap();
 };
-    
-} //end namespace csoh
+      
+} // end namespace csoh
 
 
-#endif //__CSOH_GLVERTEXBUFFER_HPP__
+#endif // __CSOH_GLSTATE_HPP__

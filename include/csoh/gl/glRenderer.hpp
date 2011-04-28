@@ -28,6 +28,9 @@
 
 namespace csoh {
 
+class glBufferObject;
+
+
 /**
 * OpenGL Renderer
 */
@@ -68,6 +71,11 @@ public:
     
     //primitive render interfaces
     //render mesh
+    
+    /**
+    * Render a vertex buffer with element buffer
+    */
+    void render(glBufferObject* const vbo, glBufferObject* const ebo);
 };
 
 } //end namespace csoh

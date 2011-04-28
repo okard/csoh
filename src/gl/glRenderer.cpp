@@ -22,6 +22,7 @@
     THE SOFTWARE.
 */
 #include <csoh/gl/glRenderer.hpp>
+#include <csoh/gl/glBufferObject.hpp>
 #include <csoh/Exception.hpp>
 
 using csoh::glRenderer;
@@ -50,6 +51,7 @@ void glRenderer::initialize()
 {
     static bool static_init = false;
     
+    //Get only one initialized in whole program
     if(!static_init)
     {
         static_init = true;
@@ -62,15 +64,19 @@ void glRenderer::initialize()
         }
         
         
-        if (GLEW_VERSION_3_2)
+        if (!GLEW_VERSION_2_1)
         {
             //check support for OpenGL here
+            throw Exception("OpenGL >2.1 required");
         }
     }
     //Check for OpenGL Context
     //at this moment a OpenGL Context must exist
     //when embedding glew init glew here?
     //only when not already initialized
+    
+    //set clear color
+    glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 }
 
 
@@ -79,19 +85,19 @@ void glRenderer::initialize()
 */
 void glRenderer::resize(int x, int y, int width, int height)
 {
-    if (height==0)                             
-        height=1;                          
+    if (height==0)
+        height=1;
 
-    glViewport(0, 0, width, height);                    // Reset The Current Viewport
+    glViewport(0, 0, width, height);
 
-    glMatrixMode(GL_PROJECTION);                        
-    glLoadIdentity();                          
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
     
     //near/far clipping?
-    gluPerspective(45.0, width/height, 1, 1000);  
+    gluPerspective(45.0, width/height, 1, 1000);
 
-    glMatrixMode(GL_MODELVIEW);                     // Select The Modelview Matrix
-    glLoadIdentity();   
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
 }
 
 /**
@@ -101,6 +107,21 @@ void glRenderer::renderStart()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glLoadIdentity();
+}
+
+
+
+/**
+* Render a vertex buffer with element buffer
+*/
+void glRenderer::render(glBufferObject* const vbo, glBufferObject* const ebo)
+{
+    vbo->bind();
+    //required right format per glVertexAttribPointer from vbo
+    
+    ebo->bind();
+    //data from ebo?
+    glDrawElements(GL_TRIANGLE_STRIP,  4, GL_UNSIGNED_SHORT,  (void*)0);
 }
 
 

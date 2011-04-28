@@ -53,6 +53,15 @@ void glTexture::bind()
     glBindTexture(GL_TEXTURE_2D, texId);
 }
 
+/**
+* Bind to specific texture layer
+* e.g. GL_TEXTURE0
+*/
+void glTexture::bind(GLenum texture)
+{
+    glActiveTexture(texture);
+    bind();
+}
 
 /**
 * Load from Image

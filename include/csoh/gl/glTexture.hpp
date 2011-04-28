@@ -55,6 +55,12 @@ public:
     void bind();
     
     /**
+    * Bind to specific texture layer
+    * e.g. GL_TEXTURE0
+    */
+    void bind(GLenum texture);
+ 
+    /**
     * Load from Image
     */
     void load(Image* img);

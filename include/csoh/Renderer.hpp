@@ -80,6 +80,10 @@ public:
     //Interface for SceneManager?
     // Rederer.render(Scene->CreateRenderList(Camera))
     //render(Camera* cam)
+    
+    //Statistics 
+    //- FPS
+    
 };
     
 

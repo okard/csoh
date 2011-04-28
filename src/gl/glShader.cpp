@@ -32,6 +32,8 @@ using csoh::glProgram;
 
 //TODO Error Handling see http://duriansoftware.com/joe/An-intro-to-modern-OpenGL.-Chapter-2.2:-Shaders.html
 
+//== glShader ================================================================
+
 /**
 * Create new OpenGL Shader
 */
@@ -67,6 +69,7 @@ void glShader::compile(const char* src)
     }
 }
 
+//== glProgram ================================================================
 
 /**
 * Create new opengl shader program
@@ -126,4 +129,20 @@ void glProgram::use()
     glUseProgram(progId);
 }
 
+/**
+* Get uniform parameter location
+*/
+GLint glProgram::GetUniformLocation(const char* name)
+{
+    return glGetUniformLocation(progId, name);
+}
+
+
+/**
+* Get attrib parameter location
+*/
+GLint glProgram::GetAttribLocation(const char* name)
+{
+    return glGetAttribLocation(progId, name);
+}
 

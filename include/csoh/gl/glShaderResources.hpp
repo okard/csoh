@@ -21,65 +21,29 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
 */
-#ifndef __CSOH_GLVERTEXBUFFER_HPP__
-#define __CSOH_GLVERTEXBUFFER_HPP__
-
-#include "GL.hpp"
+#ifndef __CSOH__GLSHADERRESOURCES_HPP__
+#define __CSOH__GLSHADERRESOURCES_HPP__
 
 namespace csoh {
 
-/**
-* OOP Wrapper for Buffer Objects
-*/
-class glBufferObject
+//Basic Shader 
+    
+    
+/*
+void main()
 {
-private:
-    /// Buffer id
-    GLuint vboId;
-    
-    /// Buffer Type
-    GLenum type; 
-public:
-    
+    gl_Position = ftransform();
+}
 
-    /**
-    * Create new Vertex Buffer Object
-    */
-    glBufferObject(GLenum type);
-    
-    /**
-    * Destructs Vertex Buffer Object
-    */
-    ~glBufferObject();
-    
-    /**
-    * Bind Vertex Buffer
-    */
-    void bind();
-    
-    /**
-    * Set Buffer Data
-    */
-    void setBufferData(const void *bufferData, GLsizei bufferSize, GLenum usage);
-    
-    /**
-    * Update Buffer Data
-    */
-    void updateBufferData(GLintptr  offset, const void *bufferData, GLsizei bufferSize);
-    
-    
-    /**
-    * Map Buffer
-    */
-    void* map(GLenum  access);
-
-    /**
-    * Unmap Buffer
-    */
-    void unmap();
-};
-    
-} //end namespace csoh
+void main()
+{
+    gl_FragColor = vec4(0.4,0.4,0.8,1.0);
+}
+*/
 
 
-#endif //__CSOH_GLVERTEXBUFFER_HPP__
+
+} // end namespace csoh
+
+
+#endif // __CSOH__GLSHADERRESOURCES_HPP__
