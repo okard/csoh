@@ -21,8 +21,8 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
 */
-#ifndef __CSOH_RENDERER_HPP__
-#define __CSOH_RENDERER_HPP__
+#ifndef __CSOH_RENDERCONTEXT_HPP__
+#define __CSOH_RENDERCONTEXT_HPP__
 
 #include <csoh/Timer.hpp>
 #include <csoh/gl/glRenderer.hpp>
@@ -32,7 +32,7 @@ namespace csoh {
 /**
 * Basic Renderer Interface
 */    
-class Renderer
+class RenderContext
 {
 private:
     /// Implemented Renderer
@@ -49,12 +49,12 @@ public:
     /**
     * Create new renderer
     */
-    Renderer();
+    RenderContext();
     
     /**
     * Destructs renderer
     */
-    ~Renderer();
+    ~RenderContext();
     
     /**
     * Initialize Renderer

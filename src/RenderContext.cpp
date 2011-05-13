@@ -21,14 +21,14 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
 */
-#include <csoh/Renderer.hpp>
+#include <csoh/RenderContext.hpp>
 
-using csoh::Renderer;
+using csoh::RenderContext;
 
 /**
 * Create new renderer
 */
-Renderer::Renderer()
+RenderContext::RenderContext()
 {
     //Initialize all Stuff that doesnt require a active graphic context
     
@@ -38,7 +38,7 @@ Renderer::Renderer()
 /**
 * Destructs renderer
 */
-Renderer::~Renderer()
+RenderContext::~RenderContext()
 {
     timer.stop();
 }
@@ -47,7 +47,7 @@ Renderer::~Renderer()
 * Initialize Renderer
 * May require valid Graphic Context
 */
-void Renderer::init()
+void RenderContext::init()
 {
     render.initialize();
 }
@@ -55,7 +55,7 @@ void Renderer::init()
 /**
 * Resize Render Viewport
 */
-void Renderer::resize(int x, int y, int width, int height)
+void RenderContext::resize(int x, int y, int width, int height)
 {
     render.resize(x, y, width, height);
 }
@@ -63,7 +63,7 @@ void Renderer::resize(int x, int y, int width, int height)
 /**
 * Start Render Scene
 */
-void Renderer::startRender()
+void RenderContext::startRender()
 {
     //get time here?
     //calcualte frames?
@@ -76,7 +76,7 @@ void Renderer::startRender()
 /**
 * Finshing Render Scene
 */
-void Renderer::finishRender()
+void RenderContext::finishRender()
 {
     //post rendering effects?
 }

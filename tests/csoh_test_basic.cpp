@@ -22,13 +22,13 @@
     THE SOFTWARE.
 */
 
-#include <csoh/Renderer.hpp>
+#include <csoh/RenderContext.hpp>
 #include <csoh/Image.hpp>
 #include <ext/freeimage/fImage.hpp>
 
 #include <GL/freeglut.h>
 
-using csoh::Renderer;
+using csoh::RenderContext;
 using csoh::fImage;
 
 // keyboard events
@@ -41,7 +41,7 @@ void reshape(int width, int height);
 static struct
 {
     //the renderer
-    Renderer rend;
+    RenderContext rend;
     //Image
     fImage texture;
 } base;

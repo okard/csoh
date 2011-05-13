@@ -12,7 +12,7 @@ find_package(OpenGL)
 set(CSOH_SRC
     src/Image.cpp
     src/Math.cpp
-    src/Renderer.cpp
+    src/RenderContext.cpp
     src/Shader.cpp
     src/Timer.cpp
     src/Utils.cpp
