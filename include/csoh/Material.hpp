@@ -21,56 +21,29 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
 */
-#ifndef __CSOH_VERTEX_HPP__
-#define __CSOH_VERTEX_HPP__
+#ifndef __CSOH_MATERIAL_HPP__
+#define __CSOH_MATERIAL_HPP__
 
 namespace csoh {
-    
-/**
-* Available Vertex Formats
-*/    
-enum VertexFormat
-{
-    
-};
-
-
-/**
-* Simple Vertex Structure
-*/
-struct SV
-{  
-    //vertex
-    float x, y, z;
-};  
-    
-    
-/**
-* Vertex Structure with textcoords
-*/
-struct VT
-{  
-    //vertex
-    float x, y, z;
-    //textcoord
-    float s0, t0;
-};    
-    
-    
-/**
-* Vertex Structure with normal and textcoords
-*/
-struct VNT
-{  
-    //vertex
-    float x, y, z;
-    //normal
-    float nx, ny, nz;
-    //textcoord
-    float s0, t0;
-};
-
-
-} // end namespace csoh
  
-#endif // __CSOH_VERTEX_HPP__
+/**
+* Represents a Material
+* Texture, Shader, ...
+*/
+class Material
+{
+private:
+    //shader
+    //textures
+    //normal, spec maps etc
+    
+public:
+    
+    
+};
+    
+    
+} // end namespace csoh
+
+
+#endif

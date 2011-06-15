@@ -39,6 +39,7 @@ using csoh::glProgram;
 */
 glShader::glShader(GLenum type)
 {
+    //assert that glew is initialized?
     shaderId = glCreateShader(type);
 }
 
@@ -140,6 +141,7 @@ GLint glProgram::GetUniformLocation(const char* name)
 
 /**
 * Get attrib parameter location
+* Only for VertexShader?
 */
 GLint glProgram::GetAttribLocation(const char* name)
 {

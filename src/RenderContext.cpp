@@ -81,3 +81,11 @@ void RenderContext::finishRender()
     //post rendering effects?
 }
 
+
+/**
+* Exists a valid render context?
+*/
+bool RenderContext::existValidRenderContext()
+{
+    return false;
+}

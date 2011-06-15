@@ -76,6 +76,11 @@ public:
     * Render a vertex buffer with element buffer
     */
     void render(glBufferObject* const vbo, glBufferObject* const ebo);
+    
+    
+    
+    //render context exist?
+    
 };
 
 } //end namespace csoh

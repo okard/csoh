@@ -28,17 +28,44 @@ namespace csoh {
 
 //Basic Shader 
     
+/**
+* Base Vertex Shader
+*/
+const char* BaseVertexShader = "void main(void) \
+                                { \
+                                    gl_Position     = gl_ModelViewProjectionMatrix * gl_Vertex; \
+                                    gl_TexCoord[0]  = gl_MultiTexCoord0; \
+                                }";
+
+
+/**
+* Simple Fragment Shader with 1 Texture
+*/
+const char* SimpleFragmentShader1T = "uniform sampler2D texSampler; \
+                                      \
+                                      void main(void) \
+                                      { \
+                                           gl_FragColor = texture2D(texSampler, vec2(gl_TexCoord[0])); \
+                                      }";
     
 /*
-void main()
+VertexShader:
+
+void main(void)
 {
-    gl_Position = ftransform();
+ gl_Position     = gl_ModelViewProjectionMatrix * gl_Vertex;
+ gl_TexCoord[0]  = gl_MultiTexCoord0;
 }
 
-void main()
+Fragment Shader:
+
+uniform sampler2D texSampler;
+ 
+void main(void)
 {
-    gl_FragColor = vec4(0.4,0.4,0.8,1.0);
+ gl_FragColor = texture2D(texSampler, vec2(gl_TexCoord[0]));
 }
+
 */
 
 

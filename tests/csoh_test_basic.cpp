@@ -22,10 +22,16 @@
     THE SOFTWARE.
 */
 
+//CSOH specific
 #include <csoh/RenderContext.hpp>
+#include <csoh/Shader.hpp>
 #include <csoh/Image.hpp>
 #include <ext/freeimage/fImage.hpp>
 
+//CSOH OpenGL Specific
+#include <csoh/gl/glShaderResources.hpp>
+
+// Create Window
 #include <GL/freeglut.h>
 
 using csoh::RenderContext;
@@ -44,6 +50,7 @@ static struct
     RenderContext rend;
     //Image
     fImage texture;
+    
 } base;
 
 /**
@@ -59,10 +66,19 @@ int main(int argc, char *argv[])
     //initializes csoh rendering engine
     base.rend.init();
     
+    //load texture
     base.texture.read("data/texture1.png");
     
     //glTexture tex;
     //tex.load(&base.texture);
+    
+    //load shader
+    csoh::ShaderProgram shader;
+    shader.load(csoh::BaseVertexShader, csoh::SimpleFragmentShader1T);
+    //set texture to shader
+    
+    //base.mesh = new glMesh();
+
     
     //create scene graph here
     //add camera
@@ -72,6 +88,9 @@ int main(int argc, char *argv[])
     glutKeyboardFunc(&keyboard);
     glutDisplayFunc(&display);
     glutMainLoop();
+    
+    
+    //clean up memory here
     
     return 0;
 }

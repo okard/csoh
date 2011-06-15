@@ -23,7 +23,7 @@ set(CSOH_SRC
     )
 
 add_definitions(-DCSOH_LIBRARY)
-add_library(csoh ${CSOH_SRC})
+add_library(csoh STATIC ${CSOH_SRC})
 target_link_libraries(csoh "rt" "GLEW" ${OPENGL_LIBRARIES})
 
 # test directory

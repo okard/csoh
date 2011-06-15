@@ -35,6 +35,7 @@ namespace csoh {
 class RenderContext
 {
 private:
+    friend class glRenderer;
     /// Implemented Renderer
     //NOTICE: This can be replace with an dxRenderer for a DirectX-Build
     glRenderer render;
@@ -84,6 +85,12 @@ public:
     //Statistics 
     //- FPS
     
+    //Resource Manager
+    
+    /**
+    * Exists a valid render context?
+    */
+    static bool existValidRenderContext();
 };
     
 

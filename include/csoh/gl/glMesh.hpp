@@ -26,6 +26,7 @@
 
 #include <csoh/Shader.hpp>
 
+#include <csoh/Vertex.hpp>
 #include <csoh/gl/glBufferObject.hpp>
 #include <csoh/gl/glTexture.hpp>
 
@@ -37,6 +38,8 @@ namespace csoh {
 class glMesh
 {
 private:
+    //Material?
+    
     /// Shader Program
     ShaderProgram shaderProg;
     
@@ -48,6 +51,9 @@ private:
     
     /// Texture
     glTexture texture;
+    
+    ///Vertex Format
+    VertexFormat format;
     
 public:
     

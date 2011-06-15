@@ -31,6 +31,8 @@ using csoh::glBufferObject;
 glBufferObject::glBufferObject(GLenum type)
     : type(type)
 {
+    //check for render context
+    
     glGenBuffers(1, &vboId);
     
     //TODO check for GL_ARRAY_BUFFER,GL_ELEMENT_ARRAY_BUFFER, GL_PIXEL_PACK_BUFFER, or GL_PIXEL_UNPACK_BUFFER.          

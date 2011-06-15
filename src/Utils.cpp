@@ -26,10 +26,12 @@
 #include <iostream>
 #include <fstream>
 
-using namespace csoh;
 
 using std::filebuf;
 using std::ifstream;
+
+namespace csoh
+{
 
 /**
 * Read in a file, delete after usage
@@ -55,3 +57,5 @@ char* readfile(const char* filename)
     
     return buffer;
 }
+
+} //end namespace csoh
