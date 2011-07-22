@@ -116,6 +116,15 @@ public:
     * Get attrib parameter location
     */
     GLint GetAttribLocation(const char* name);
+    
+    
+    //glGetProgrami
+    //GL_ACTIVE_ATTRIBUTES
+    //GL_ACTIVE_ATTRIBUTE_MAX_LENGTH
+    //GL_ACTIVE_UNIFORMS
+    //GL_ACTIVE_UNIFORM_MAX_LENGTH
+    //glGetActiveAttrib
+    //glGetActiveUniform
 };
     
     

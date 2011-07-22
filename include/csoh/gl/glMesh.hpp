@@ -45,10 +45,10 @@ private:
     
     /// Vertex Array
     glBufferObject vertexArray;
-    
+ 
     /// Element Array
     glBufferObject elementArray;
-    
+
     /// Texture
     glTexture texture;
     
@@ -57,6 +57,15 @@ private:
     
 public:
     
+    /**
+    * Create a new OpenGL mesh
+    */
+    glMesh();
+    
+    /**
+    * Destroy OpenGL mesh
+    */
+    ~glMesh();
     
     
 };

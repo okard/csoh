@@ -11,7 +11,6 @@ find_package(OpenGL)
 
 set(CSOH_SRC
     src/Image.cpp
-    src/Math.cpp
     src/RenderContext.cpp
     src/Shader.cpp
     src/Timer.cpp
@@ -20,9 +19,12 @@ set(CSOH_SRC
     src/gl/glShader.cpp
     src/gl/glRenderer.cpp
     src/gl/glBufferObject.cpp
+    src/gl/glMesh.cpp
     )
 
+#export lib functions under windows
 add_definitions(-DCSOH_LIBRARY)
+
 add_library(csoh STATIC ${CSOH_SRC})
 target_link_libraries(csoh "rt" "GLEW" ${OPENGL_LIBRARIES})
 

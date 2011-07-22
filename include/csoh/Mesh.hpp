@@ -34,11 +34,13 @@ namespace csoh {
 class Mesh
 {
 private:
+    /// OpenGL Mesh Format
     glMesh mesh;
     
 public:
     
     
+    //load vertexes?
     
     
 };

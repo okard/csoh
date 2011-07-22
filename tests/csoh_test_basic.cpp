@@ -26,6 +26,7 @@
 #include <csoh/RenderContext.hpp>
 #include <csoh/Shader.hpp>
 #include <csoh/Image.hpp>
+#include <csoh/Mesh.hpp>
 #include <ext/freeimage/fImage.hpp>
 
 //CSOH OpenGL Specific
@@ -35,6 +36,7 @@
 #include <GL/freeglut.h>
 
 using csoh::RenderContext;
+using csoh::Mesh;
 using csoh::fImage;
 
 // keyboard events
@@ -50,6 +52,8 @@ static struct
     RenderContext rend;
     //Image
     fImage texture;
+    //mesh to display
+    Mesh* mesh;
     
 } base;
 
@@ -63,7 +67,7 @@ int main(int argc, char *argv[])
     glutCreateWindow("CSOH Test");
     glutReshapeWindow(1024, 768);
     
-    //initializes csoh rendering engine
+    //initializes csoh rendering engine (requires valid openGL Context)
     base.rend.init();
     
     //load texture
@@ -72,9 +76,24 @@ int main(int argc, char *argv[])
     //glTexture tex;
     //tex.load(&base.texture);
     
+    base.mesh = new Mesh();
+    
+    //load vertexes
+    //load index
+    //(load material)
+    //load textures
+    //load shaders
+    
+    //test to render something
+    
+    
+    
+    
     //load shader
-    csoh::ShaderProgram shader;
-    shader.load(csoh::BaseVertexShader, csoh::SimpleFragmentShader1T);
+    //csoh::ShaderProgram shader;
+    //shader.load(csoh::BaseVertexShader, csoh::SimpleFragmentShader1T);
+    //shader.use();
+    
     //set texture to shader
     
     //base.mesh = new glMesh();
@@ -91,6 +110,7 @@ int main(int argc, char *argv[])
     
     
     //clean up memory here
+    delete base.mesh;
     
     return 0;
 }

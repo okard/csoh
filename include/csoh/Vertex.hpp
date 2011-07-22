@@ -31,7 +31,12 @@ namespace csoh {
 */    
 enum VertexFormat
 {
-    
+    /// Simple vertex 
+    SimpleVertex,
+    /// Vertex with texture coords
+    VertexTexture,
+    /// Vertex with texture and normal coords
+    VertexTextureNormal,
 };
 
 
