@@ -46,17 +46,43 @@ void display();
 //reshpare function
 void reshape(int width, int height);
 
-static struct
+/**
+* Basic Test
+*/
+class BasicTest
 {
-    //the renderer
-    RenderContext rend;
-    //Image
-    fImage texture;
-    //mesh to display
-    Mesh* mesh;
+private:
+    ///render context
+    RenderContext ctx;
     
-} base;
+    
+public:
+    
+    //initialize
+    void init()
+    {
+        ctx.init();
+    }
+    
+    //render
+    void render()
+    {
+        //start rendering a frame
+        ctx.startRender();
+        ctx.finishRender();
+    }
+    
+    void reshape(int width, int height)
+    {
+        ctx.resize(0, 0, width, height);
+    }
+    
+    
+};
 
+//Basic Test 
+BasicTest test;
+    
 /**
 * Main Function
 */
@@ -65,52 +91,16 @@ int main(int argc, char *argv[])
     //Initialize GLUT
     glutInit(&argc, argv);
     glutCreateWindow("CSOH Test");
+    
+    test.init();
     glutReshapeWindow(1024, 768);
     
-    //initializes csoh rendering engine (requires valid openGL Context)
-    base.rend.init();
-    
-    //load texture
-    base.texture.read("data/texture1.png");
-    
-    //glTexture tex;
-    //tex.load(&base.texture);
-    
-    base.mesh = new Mesh();
-    
-    //load vertexes
-    //load index
-    //(load material)
-    //load textures
-    //load shaders
-    
-    //test to render something
-    
-    
-    
-    
-    //load shader
-    //csoh::ShaderProgram shader;
-    //shader.load(csoh::BaseVertexShader, csoh::SimpleFragmentShader1T);
-    //shader.use();
-    
-    //set texture to shader
-    
-    //base.mesh = new glMesh();
 
-    
-    //create scene graph here
-    //add camera
-    
     //Set Callback Function and start main loop
     glutReshapeFunc(&reshape);
     glutKeyboardFunc(&keyboard);
     glutDisplayFunc(&display);
     glutMainLoop();
-    
-    
-    //clean up memory here
-    delete base.mesh;
     
     return 0;
 }
@@ -128,10 +118,7 @@ void keyboard(unsigned char key, int x, int y)
 */
 void display()
 {
-    //start rendering a frame
-    base.rend.startRender();
-    base.rend.finishRender();
-    
+    test.render();
     //swap buffer
     glutSwapBuffers();
 }
@@ -141,6 +128,5 @@ void display()
 */
 void reshape(int width, int height)
 {
-    //resize the rendering interface
-    base.rend.resize(0, 0, width, height);
+    test.reshape(width, height);
 }
