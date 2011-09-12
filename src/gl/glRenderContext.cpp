@@ -21,7 +21,7 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
 */
-#include <csoh/gl/glRenderer.hpp>
+#include <csoh/gl/glRenderContext.hpp>
 #include <csoh/gl/glBufferObject.hpp>
 #include <csoh/Exception.hpp>
 

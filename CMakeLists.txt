@@ -16,11 +16,11 @@ set(CSOH_SRC
     src/Timer.cpp
     src/Utils.cpp
     src/gl/gl3w.c
-    src/gl/glTexture.cpp
-    src/gl/glShader.cpp
-    src/gl/glRenderer.cpp
     src/gl/glBufferObject.cpp
     src/gl/glMesh.cpp
+    src/gl/glRenderContext.cpp
+    src/gl/glTexture.cpp
+    src/gl/glShader.cpp
     src/gl/glVertexArray.cpp
     )
 

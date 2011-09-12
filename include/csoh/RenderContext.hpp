@@ -25,7 +25,7 @@
 #define __CSOH_RENDERCONTEXT_HPP__
 
 #include <csoh/Timer.hpp>
-#include <csoh/gl/glRenderer.hpp>
+#include <csoh/gl/glRenderContext.hpp>
 
 namespace csoh {
 
