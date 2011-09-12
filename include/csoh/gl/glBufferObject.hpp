@@ -67,7 +67,6 @@ public:
     */
     void updateBufferData(GLintptr  offset, const void *bufferData, GLsizei bufferSize);
     
-    
     /**
     * Map Buffer
     */

@@ -35,10 +35,10 @@ namespace csoh {
 class RenderContext
 {
 private:
-    friend class glRenderer;
+    friend class glRenderContext;
     /// Implemented Renderer
     //NOTICE: This can be replace with an dxRenderer for a DirectX-Build
-    glRenderer render;
+    glRenderContext render;
     
     /// Timer
     Timer timer;

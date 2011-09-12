@@ -24,7 +24,7 @@
 #ifndef __CSOH_GLRENDERER_HPP__
 #define __CSOH_GLRENDERER_HPP__
 
-#include "GL.hpp"
+#include <csoh/gl/GL.hpp>
 
 namespace csoh {
 
@@ -34,7 +34,7 @@ class glBufferObject;
 /**
 * OpenGL Renderer
 */
-class glRenderer
+class glRenderContext
 {
 private:
     /// Is Render Initialized
@@ -45,12 +45,12 @@ public:
     /**
     * Create new OpenGL renderer
     */
-    glRenderer();
+    glRenderContext();
     
     /**
     * Destroy OpenGL renderer
     */
-    ~glRenderer();
+    ~glRenderContext();
     
     /**
     * Initialize Renderer

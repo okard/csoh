@@ -21,14 +21,44 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
 */
-#ifndef __CSOH_GL_HPP__
-#define __CSOH_GL_HPP__
+#ifndef __CSOH_GLVERTEXARRAY_HPP__
+#define __CSOH_GLVERTEXARRAY_HPP__
 
-//OpenGL Includes with GLEW
-#include <csoh/gl/gl3w.h>
-#include <csoh/gl/gl3.h>
-#include <GL/gl.h>
-#include <GL/glu.h>
+#include <csoh/gl/GL.hpp>
 
 
-#endif // __CSOH_GL_HPP__
+namespace csoh {
+
+/**
+* Vertex Array
+*/
+class glVertexArray
+{
+private:
+    
+    ///vertex array object id
+    GLuint vaoId;
+
+public:
+    
+    /**
+    * Create new Vertex Array Object
+    */
+    glVertexArray();
+    
+    /**
+    * Destroy Vertex Array Object
+    */
+    ~glVertexArray();
+    
+    /**
+    * Bind Vertex Array Object
+    */
+    void bind();
+    
+};
+      
+    
+} //end namespace csoh
+
+#endif //__CSOH_GLVERTEXARRAY_HPP__

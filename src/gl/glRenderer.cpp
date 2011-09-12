@@ -25,13 +25,13 @@
 #include <csoh/gl/glBufferObject.hpp>
 #include <csoh/Exception.hpp>
 
-using csoh::glRenderer;
+using csoh::glRenderContext;
 using csoh::Exception;
 
 /**
 * Create new OpenGL renderer
 */
-glRenderer::glRenderer()
+glRenderContext::glRenderContext()
 {
     //initialize stuff which doesnt require opengl context
 }
@@ -39,7 +39,7 @@ glRenderer::glRenderer()
 /**
 * Destroy OpenGL renderer
 */
-glRenderer::~glRenderer()
+glRenderContext::~glRenderContext()
 {
     
 }
@@ -47,7 +47,7 @@ glRenderer::~glRenderer()
 /**
 * Initialize Renderer
 */
-void glRenderer::initialize()
+void glRenderContext::initialize()
 {
     static bool static_init = false;
     
@@ -56,19 +56,16 @@ void glRenderer::initialize()
     {
         static_init = true;
         
-        //Initialize GLEW Library
-        GLenum err = glewInit();
-        if (GLEW_OK != err)
+        if (gl3wInit()) 
         {
-            throw Exception(reinterpret_cast<const char*>(glewGetErrorString(err)));
+            throw Exception("Failed to initialized gl3w, Missing OpenGL Context?");
         }
         
-        
-        if (!GLEW_VERSION_2_1)
+        if (!gl3wIsSupported(3, 2)) 
         {
-            //check support for OpenGL here
-            throw Exception("OpenGL >2.1 required");
+            throw Exception("OpenGL > 3.2 required");
         }
+        
     }
     //Check for OpenGL Context
     //at this moment a OpenGL Context must exist
@@ -83,30 +80,30 @@ void glRenderer::initialize()
 /**
 * Resize OpenGL Viewport
 */
-void glRenderer::resize(int x, int y, int width, int height)
+void glRenderContext::resize(int x, int y, int width, int height)
 {
     if (height==0)
         height=1;
 
     glViewport(0, 0, width, height);
 
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
+    //glMatrixMode(GL_PROJECTION);
+    //glLoadIdentity();
     
     //near/far clipping?
     gluPerspective(45.0, width/height, 1, 1000);
 
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
+    //glMatrixMode(GL_MODELVIEW);
+    //glLoadIdentity();
 }
 
 /**
 * Start Render
 */
-void glRenderer::renderStart()
+void glRenderContext::renderStart()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glLoadIdentity();
+    //glLoadIdentity();
 }
 
 
@@ -114,7 +111,7 @@ void glRenderer::renderStart()
 /**
 * Render a vertex buffer with element buffer
 */
-void glRenderer::render(glBufferObject* const vbo, glBufferObject* const ebo)
+void glRenderContext::render(glBufferObject* const vbo, glBufferObject* const ebo)
 {
     vbo->bind();
     //required right format per glVertexAttribPointer from vbo
