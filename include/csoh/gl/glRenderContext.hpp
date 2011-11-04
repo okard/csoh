@@ -21,10 +21,13 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
 */
+#pragma once
 #ifndef __CSOH_GLRENDERER_HPP__
 #define __CSOH_GLRENDERER_HPP__
 
 #include <csoh/gl/GL.hpp>
+
+#include <csoh/gl/glState.hpp>
 
 namespace csoh {
 
@@ -39,6 +42,9 @@ class glRenderContext
 private:
     /// Is Render Initialized
     bool initialized;
+    
+    /// OpenGL State
+    glState state;
     
 public:
 
@@ -81,6 +87,10 @@ public:
     
     //render context exist?
     
+    /**
+    * Is initialized
+    */
+    bool isInitialized();
 };
 
 } //end namespace csoh

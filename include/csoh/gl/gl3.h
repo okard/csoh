@@ -1,3 +1,4 @@
+#pragma once
 #ifndef __gl3_h_
 #define __gl3_h_
 

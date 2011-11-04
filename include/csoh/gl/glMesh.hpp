@@ -21,6 +21,7 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
 */
+#pragma once
 #ifndef __CSOH_GLMESH_HPP__
 #define __CSOH_GLMESH_HPP__
 
@@ -29,6 +30,7 @@
 #include <csoh/Vertex.hpp>
 #include <csoh/gl/glBufferObject.hpp>
 #include <csoh/gl/glTexture.hpp>
+#include <csoh/gl/glVertexArray.hpp>
 
 namespace csoh {
 
@@ -52,8 +54,8 @@ private:
     /// Texture
     glTexture texture;
     
-    ///Vertex Format
-    VertexFormat format;
+    /// Vertex Array Object
+    glVertexArray vao;
     
 public:
     
@@ -67,6 +69,13 @@ public:
     */
     ~glMesh();
     
+    //TODO setup
+    
+    //template <class T> void load(T[] data) {}
+    
+    //TODO Load data
+    //TODO Modify Data
+    //TODO Render Data
     
 };
     

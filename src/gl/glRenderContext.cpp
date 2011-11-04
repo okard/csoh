@@ -122,4 +122,11 @@ void glRenderContext::render(glBufferObject* const vbo, glBufferObject* const eb
 }
 
 
+/**
+* Is initialized
+*/
+bool glRenderContext::isInitialized()
+{
+    return initialized;
+}
 

@@ -21,6 +21,7 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
 */
+#pragma once
 #ifndef __CSOH_VERTEX_HPP__
 #define __CSOH_VERTEX_HPP__
 
@@ -75,6 +76,12 @@ struct VNT
     float s0, t0;
 };
 
+
+//triangle
+//quads
+//lines
+
+//splittet data to shader?
 
 } // end namespace csoh
  

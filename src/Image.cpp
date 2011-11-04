@@ -33,15 +33,10 @@ int Image::width() const
     return mWidth;
 }
 
-/// Gt Height
+/// Get Height
 int Image::height() const
 {
     return mHeight;
-}
-
-/// Read in image
-void read(const char* filename)
-{
 }
 
 /// Clear Memory

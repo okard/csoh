@@ -62,6 +62,8 @@ public:
     void init()
     {
         ctx.init();
+        
+        //create opengl mesh
     }
     
     //render
@@ -69,6 +71,9 @@ public:
     {
         //start rendering a frame
         ctx.startRender();
+        
+        //render mesh here
+        
         ctx.finishRender();
     }
     

@@ -21,30 +21,30 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
 */
-#ifndef __CSOH_SCENE_HPP__
-#define __CSOH_SCENE_HPP__
+#pragma once
+#ifndef __CSOH_TEXTURE_HPP__
+#define __CSOH_TEXTURE_HPP__
+
+#include <csoh/gl/glTexture.hpp>
+
 
 namespace csoh {
 
 /**
-* Represents a Scene
+* Represents a Texture
 */
-class Scene
+class Texture
 {
-    //Hold Tree of SceneNodes?
+private:
+    glTexture texture;
     
-    //TODO Nodes for
-    //Billboards
-    //QuadTree
-    //Octree
-    //Particle
-    //Lights
-    //Camera
-    //Model (Mesh + Material (Texture / Shader)
+public:
     
-};
+    //Texture Properties
     
- 
+}
+    
 } //end namespace csoh
 
-#endif // __CSOH_SCENE_HPP__
+
+#endif // __CSOH_TEXTURE_HPP__

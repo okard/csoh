@@ -21,12 +21,16 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
 */
+#pragma once
 #ifndef __CSOH_GLVERTEXBUFFER_HPP__
 #define __CSOH_GLVERTEXBUFFER_HPP__
 
 #include "GL.hpp"
 
 namespace csoh {
+    
+//forward declaration
+class glRenderContext;
 
 /**
 * OOP Wrapper for Buffer Objects
@@ -41,6 +45,10 @@ private:
     GLenum type; 
 public:
     
+    /**
+    * Create new Vertex Buffer Object
+    */
+    glBufferObject(glRenderContext* ctx, GLenum type);
 
     /**
     * Create new Vertex Buffer Object
