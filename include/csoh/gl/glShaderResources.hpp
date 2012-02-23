@@ -38,6 +38,21 @@ const char* BaseVertexShader = "void main(void) \
                                     gl_TexCoord[0]  = gl_MultiTexCoord0; \
                                 }";
 
+/*
+#version 140
+ 
+uniform Transformation {
+    mat4 projection_matrix;
+    mat4 modelview_matrix;
+};
+ 
+in vec3 vertex;
+ 
+void main() {
+    gl_Position = projection_matrix * modelview_matrix * vec4(vertex, 1.0);
+}
+ 
+*/
 
 /**
 * Simple Fragment Shader with 1 Texture

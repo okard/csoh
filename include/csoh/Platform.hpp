@@ -39,5 +39,7 @@
     #define CSOH_EXPORT
 #endif
 
+// CSOH_MACOSX
+//64bit 32bit?
 
 #endif // __CSOH_PLATFORM_HPP__

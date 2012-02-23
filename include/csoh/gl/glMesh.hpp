@@ -26,6 +26,7 @@
 #define __CSOH_GLMESH_HPP__
 
 #include <csoh/Shader.hpp>
+#include <csoh/Material.hpp>
 
 #include <csoh/Vertex.hpp>
 #include <csoh/gl/glBufferObject.hpp>
@@ -40,22 +41,21 @@ namespace csoh {
 class glMesh
 {
 private:
-    //Material?
-    
-    /// Shader Program
-    ShaderProgram shaderProg;
     
     /// Vertex Array
     glBufferObject vertexArray;
  
     /// Element Array
     glBufferObject elementArray;
-
-    /// Texture
-    glTexture texture;
     
     /// Vertex Array Object
     glVertexArray vao;
+    
+    /// Vertex Format
+    VertexFormat vertexFormat;
+    
+    /// Material
+    Material material;
     
 public:
     
@@ -69,13 +69,15 @@ public:
     */
     ~glMesh();
     
-    //TODO setup
+    /**
+    * Load data from memory
+    */
+    void loadData(VertexFormat format, const void* data, int length);
     
-    //template <class T> void load(T[] data) {}
-    
-    //TODO Load data
-    //TODO Modify Data
-    //TODO Render Data
+    /**
+    * Render Mesh
+    */
+    void render();
     
 };
     

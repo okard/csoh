@@ -37,13 +37,27 @@ using csoh::Timer;
 
 #ifdef CSOH_LINUX
 /**
-* get time
+* get time posix
 */
 static float getTimeMS()
 {
     timespec curTime;
     clock_gettime(CLOCK_REALTIME, &curTime);
     return curTime.tv_sec*1000.0f + curTime.tv_nsec/1000000.0f;
+}
+#endif
+
+
+#ifdef CSOH_WIN32
+/**
+* get time windows
+*/
+static float getTimeMS()
+{
+    LONGLONG g_CurentCount
+    QueryPerformanceCounter((LARGE_INTEGER*)&g_CurentCount); 
+    
+    return 0.0f;
 }
 #endif
 

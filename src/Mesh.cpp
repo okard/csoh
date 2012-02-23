@@ -21,44 +21,15 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
 */
-#pragma once
-#ifndef __CSOH_MESH_HPP__
-#define __CSOH_MESH_HPP__
+#include <csoh/Mesh.hpp>
 
-#include <csoh/gl/glMesh.hpp>
+using csoh::Mesh;
 
-namespace csoh {
-    
+
 /**
-* Represents a Mesh
-*/    
-class Mesh
+* Render Mesh
+*/
+void Mesh::render()
 {
-private:
-    /// OpenGL Mesh Format
-    glMesh mesh;
-    
-public:
-    
-    
-    //load vertexes?
-    //directly?
-    //index elements?
-    
-    //set texture
-    
-    /**
-    * Render Mesh
-    */
-    void render();
-    
-    //get Material
-};
-    
-    
-    
-} //end namespace csoh
-
-
-
-#endif // __CSOH_MESH_HPP__
+    mesh.render();
+}

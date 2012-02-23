@@ -37,12 +37,20 @@ namespace csoh {
 class Material
 {
 private:
+    
+    /// The Shader Program
+    ShaderProgram shader;
+    
     //shader
     //textures
     //normal, spec maps etc
     
 public:
     
+    /**
+    * Access to Shader Program
+    */
+    const ShaderProgram& getShaderProgram();
     
 };
     

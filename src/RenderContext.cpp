@@ -79,6 +79,7 @@ void RenderContext::startRender()
 void RenderContext::finishRender()
 {
     //post rendering effects?
+    render.finishRender();
 }
 
 

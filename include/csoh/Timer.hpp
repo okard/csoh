@@ -36,6 +36,8 @@ private:
     /// is running
     bool running;
     
+    
+    //TODO use long not float 
     /// Last time value
     float lastTime;
     

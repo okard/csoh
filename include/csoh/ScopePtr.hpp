@@ -22,43 +22,68 @@
     THE SOFTWARE.
 */
 #pragma once
-#ifndef __CSOH_MESH_HPP__
-#define __CSOH_MESH_HPP__
-
-#include <csoh/gl/glMesh.hpp>
+#ifndef __CSOH_SCOPEPTR_HPP__
+#define __CSOH_SCOPEPTR_HPP__
 
 namespace csoh {
-    
+
 /**
-* Represents a Mesh
-*/    
-class Mesh
+* Scope Smart Pointer
+*/
+template<typename T>
+class ScopePtr 
 {
 private:
-    /// OpenGL Mesh Format
-    glMesh mesh;
+    T* instance;
     
+    /// Default Constructor
+    ScopePtr(){};
+    /// Copy Constructor
+    ScopePtr(const ScopePtr& sptr){};
 public:
-    
-    
-    //load vertexes?
-    //directly?
-    //index elements?
-    
-    //set texture
+    /**
+    * Create Scope Smart Pointer
+    */
+    ScopePtr(T* instance)
+        : instance(instance)
+    {
+    }
     
     /**
-    * Render Mesh
+    * Destroy scope ptr and instance
     */
-    void render();
+    ~ScopePtr()
+    {
+        delete instance;
+        instance = 0;
+    }
     
-    //get Material
+    /**
+    * * Operator Access
+    */
+    T& operator*() const
+    {
+        return *instance;
+    }
+    
+    /**
+    * -> Operator Access
+    */ 
+    T* operator->() const
+    {
+        return instance;
+    }
+    
+    /**
+    * Get internal ptr
+    */
+    T* get() const
+    {
+        return instance;
+    }
+      
 };
-    
-    
-    
+
 } //end namespace csoh
 
-
-
-#endif // __CSOH_MESH_HPP__
+#endif //__CSOH_SCOPEPTR_HPP__

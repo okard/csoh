@@ -41,3 +41,32 @@ glMesh::glMesh()
 glMesh::~glMesh()
 {
 }
+
+
+/**
+* Load data from memory
+*/
+void glMesh::loadData(VertexFormat format, const void* data, int length)
+{
+    //vertexArray
+    //elementArray
+    
+    //.setBufferData(const void *bufferData, GLsizei bufferSize, GLenum usage);
+    
+    vao.bind();
+    //index data?
+    //vertex data?
+    
+    //set config for draw
+    
+}
+
+/**
+* Render Mesh
+*/
+void glMesh::render()
+{
+    vao.bind();
+    //glDrawElements(GL_TRIANGLE_STRIP,  4, GL_UNSIGNED_SHORT,  (void*)0);
+    
+}

@@ -73,17 +73,10 @@ public:
     */
     void renderStart();
     
-    //renderFinish
-    
-    //primitive render interfaces
-    //render mesh
-    
     /**
-    * Render a vertex buffer with element buffer
+    * Finshing Render Scene
     */
-    void render(glBufferObject* const vbo, glBufferObject* const ebo);
-    
-    
+    void finishRender();
     
     //render context exist?
     

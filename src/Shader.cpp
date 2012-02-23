@@ -23,6 +23,7 @@
 */
 #include <csoh/Shader.hpp>
 
+#include <csoh/ScopePtr.hpp>
 #include <csoh/Utils.hpp>
 
 using csoh::ShaderProgram;
@@ -60,14 +61,10 @@ void ShaderProgram::load(const char* vertexShader, const char* fragmentShader)
 */
 void ShaderProgram::loadFromFile(const char* vertexShaderFile, const char* fragmentShaderFile)
 {
-    //TODO Use ScopePtr?
-    char* vertexShader = csoh::readfile(vertexShaderFile);
-    char* fragmentShader = csoh::readfile(vertexShaderFile);
+    csoh::ScopePtr<char> vertexShader(csoh::readfile(vertexShaderFile));
+    csoh::ScopePtr<char> fragmentShader(csoh::readfile(vertexShaderFile));
     
-    load(vertexShader, fragmentShader);
-    
-    delete vertexShader;
-    delete fragmentShader;
+    load(vertexShader.get(), fragmentShader.get());
 }
 
 /**

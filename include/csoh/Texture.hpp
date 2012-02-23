@@ -42,7 +42,7 @@ public:
     
     //Texture Properties
     
-}
+};
     
 } //end namespace csoh
 

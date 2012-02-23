@@ -67,7 +67,7 @@ void glTexture::bind(GLenum texture)
 * Load from Image
 * Binds texture automatically
 */
-void glTexture::load(Image* img)
+void glTexture::load(const Image* img)
 {
     bind();
 

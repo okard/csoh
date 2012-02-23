@@ -11,6 +11,8 @@ find_package(OpenGL)
 
 set(CSOH_SRC
     src/Image.cpp
+    src/Material.cpp
+    src/Mesh.cpp
     src/RenderContext.cpp
     src/Shader.cpp
     src/Timer.cpp
@@ -28,7 +30,7 @@ set(CSOH_SRC
 add_definitions(-DCSOH_LIBRARY)
 
 add_library(csoh STATIC ${CSOH_SRC})
-target_link_libraries(csoh "rt" ${OPENGL_LIBRARIES})
+target_link_libraries(csoh "rt" "dl" ${OPENGL_LIBRARIES})
 
 # test directory
 add_subdirectory(tests)

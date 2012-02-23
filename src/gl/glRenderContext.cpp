@@ -107,18 +107,14 @@ void glRenderContext::renderStart()
 }
 
 
-
 /**
-* Render a vertex buffer with element buffer
+* Finshing Render Scene
 */
-void glRenderContext::render(glBufferObject* const vbo, glBufferObject* const ebo)
+void glRenderContext::finishRender()
 {
-    vbo->bind();
-    //required right format per glVertexAttribPointer from vbo
+    //handle GLenum glGetError(void);
+    //GL_NO_ERROR
     
-    ebo->bind();
-    //data from ebo?
-    glDrawElements(GL_TRIANGLE_STRIP,  4, GL_UNSIGNED_SHORT,  (void*)0);
 }
 
 

@@ -64,7 +64,7 @@ public:
     /**
     * Load from Image
     */
-    void load(Image* img);
+    void load(const Image* img);
     
     /**
     * Clears the texture
