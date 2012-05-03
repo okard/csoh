@@ -10,8 +10,8 @@ fi
 cd build
 
 #create make files with cmake
-cmake -G "Unix Makefiles" ..
+cmake -G "Ninja" ..
 
 #make program
-make
+ninja
 

@@ -78,7 +78,7 @@ public:
     /**
     * Map Buffer
     */
-    void* map(GLenum  access);
+    void* map(GLenum access);
 
     /**
     * Unmap Buffer

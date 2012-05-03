@@ -48,17 +48,34 @@ glMesh::~glMesh()
 */
 void glMesh::loadData(VertexFormat format, const void* data, int length)
 {
-    //vertexArray
-    //elementArray
+    //length vs count
+    
+    vao.bind();
+    vertexArray.bind();
     
     //.setBufferData(const void *bufferData, GLsizei bufferSize, GLenum usage);
     
-    vao.bind();
+    
+    // 0 , 3 floats, not normalized, vertex size (-xyz?), start 0)
+    //glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(VertexFormat), 0)
+    //glColorPointer(4, GL_FLOAT, sizeof(VertexFormat), pos(Vertex.r))
+    //glTexCoordPointer(3,  GL_Float, sizeof(VertexFormat),  pos(tx));
+    
+    elementArray.bind();
+    
+    //   glEnableClientState(GL_VERTEX_ARRAY);
+    //glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+    
+    // bind vbos to attrib index
+    // bind attrib index to shader attrib
+    // glEnableVertexAttribArray(0);
+    // glBindAttribLocation(shaderprogram, 0, );
+ 
+
     //index data?
-    //vertex data?
-    
-    //set config for draw
-    
+    //predefined element strategies
+    //triangles mesh
+    // strip -> 123, 234, 345, 456, 567, ...
 }
 
 /**
@@ -68,5 +85,8 @@ void glMesh::render()
 {
     vao.bind();
     //glDrawElements(GL_TRIANGLE_STRIP,  4, GL_UNSIGNED_SHORT,  (void*)0);
+    
+    //glDrawArrays(GL_QUADS, 0, buffer.length);  //  Ausgabe
+    
     
 }

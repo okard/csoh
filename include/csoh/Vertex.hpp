@@ -32,11 +32,13 @@ namespace csoh {
 */    
 enum VertexFormat
 {
-    /// Simple vertex 
+    ///SV Simple vertex 
     SimpleVertex,
-    /// Vertex with texture coords
+    ///SCV Simple Vertex with Color
+    SimpleVertexColor,
+    ///VT Vertex with texture coords
     VertexTexture,
-    /// Vertex with texture and normal coords
+    ///VNT Vertex with texture and normal coords
     VertexTextureNormal,
 };
 
@@ -49,7 +51,15 @@ struct SV
     //vertex
     float x, y, z;
 };  
-    
+
+/**
+* Simple Vertex Color
+*/
+struct SVC
+{
+    float x, y, z;
+    float r, g, b, a;
+};
     
 /**
 * Vertex Structure with textcoords
