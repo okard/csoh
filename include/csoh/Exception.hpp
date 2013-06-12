@@ -32,7 +32,7 @@ namespace csoh {
 /**
 * Engine Exception
 */
-class Exception : public std::exception
+class StaticException : public std::exception
 {
     private:
         /// exception msg
@@ -42,7 +42,7 @@ class Exception : public std::exception
         /**
         * Constructor
         */
-        Exception(const char* msg)
+        StaticException(const char* msg)
             : msg(msg)
         {
         }
@@ -55,6 +55,9 @@ class Exception : public std::exception
             return msg;
         }
 };
+
+//FormatException
+
         
 } //end namespace csoh
 

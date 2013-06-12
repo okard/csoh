@@ -52,6 +52,7 @@ public:
     */
     const ShaderProgram& getShaderProgram();
     
+    //bind()
 };
     
     

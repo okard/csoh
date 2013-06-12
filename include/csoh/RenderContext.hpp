@@ -26,6 +26,7 @@
 #define __CSOH_RENDERCONTEXT_HPP__
 
 #include <csoh/Timer.hpp>
+#include <csoh/Math.hpp>
 #include <csoh/gl/glRenderContext.hpp>
 
 namespace csoh {
@@ -39,13 +40,20 @@ private:
     friend class glRenderContext;
     /// Implemented Renderer
     //NOTICE: This can be replace with an dxRenderer for a DirectX-Build
-    glRenderContext render;
+    glRenderContext render_;
     
     /// Timer
-    Timer timer;
+    Timer timer_;
     
     //Shared Texture Manager?
     //Textures are for one Context?
+    
+    //model view projection matrix in seperate structure?
+    Matrix4f modelMatrix;
+    Matrix4f viewMatrix;
+
+    //View
+    //[Camera]
     
 public:
     /**

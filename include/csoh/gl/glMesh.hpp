@@ -31,7 +31,6 @@
 #include <csoh/Vertex.hpp>
 #include <csoh/gl/glBufferObject.hpp>
 #include <csoh/gl/glTexture.hpp>
-#include <csoh/gl/glVertexArray.hpp>
 
 namespace csoh {
 
@@ -48,14 +47,11 @@ private:
     /// Element Array
     glBufferObject elementArray;
     
-    /// Vertex Array Object
-    glVertexArray vao;
-    
     /// Vertex Format
     VertexFormat vertexFormat;
     
-    /// Material
-    Material material;
+    /// Shader Parameter
+    
     
 public:
     

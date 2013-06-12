@@ -26,8 +26,7 @@
 #define __CSOH_GLTEXTURE_HPP__
 
 #include <csoh/Image.hpp>
-#include <csoh/gl/GL.hpp>
-
+#include <csoh/gl/OpenGL.hpp>
 
 namespace csoh {
  

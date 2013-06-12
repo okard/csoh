@@ -41,6 +41,8 @@ private:
     glShader fragment;
     /// Shader Program
     glProgram program;
+    
+    //TODO Multiple Shader?
         
 public:
     /// Create new Shader
@@ -53,12 +55,15 @@ public:
     void load(const char* vertex, const char* fragment);
     
     /// Load Shader from File
+    //TODO fixit to use multiple vertex fragment shader
     void loadFromFile(const char* vertexShaderFile, const char* fragmentShaderFile);
     
     /// Activate Shader Program
     void use();
     
 
+
+	//attrib 
 
     //get list with parameters?
     //TODO Parameter Handling

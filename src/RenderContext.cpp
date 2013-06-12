@@ -29,10 +29,11 @@ using csoh::RenderContext;
 * Create new renderer
 */
 RenderContext::RenderContext()
+	: render_(*this)
 {
     //Initialize all Stuff that doesnt require a active graphic context
     
-    timer.start();
+    timer_.start();
 }
 
 /**
@@ -40,7 +41,7 @@ RenderContext::RenderContext()
 */
 RenderContext::~RenderContext()
 {
-    timer.stop();
+    timer_.stop();
 }
 
 /**
@@ -49,7 +50,7 @@ RenderContext::~RenderContext()
 */
 void RenderContext::init()
 {
-    render.initialize();
+    render_.initialize();
 }
 
 /**
@@ -57,7 +58,7 @@ void RenderContext::init()
 */
 void RenderContext::resize(int x, int y, int width, int height)
 {
-    render.resize(x, y, width, height);
+    render_.resize(x, y, width, height);
 }
 
 /**
@@ -67,9 +68,9 @@ void RenderContext::startRender()
 {
     //get time here?
     //calcualte frames?
-    float t = timer.time(true);
+    float t = timer_.time(true);
     
-    render.renderStart();
+    render_.renderStart();
 }
 
 
@@ -79,7 +80,7 @@ void RenderContext::startRender()
 void RenderContext::finishRender()
 {
     //post rendering effects?
-    render.finishRender();
+    render_.finishRender();
 }
 
 

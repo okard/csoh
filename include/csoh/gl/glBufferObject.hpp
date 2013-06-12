@@ -25,7 +25,7 @@
 #ifndef __CSOH_GLVERTEXBUFFER_HPP__
 #define __CSOH_GLVERTEXBUFFER_HPP__
 
-#include "GL.hpp"
+#include <csoh/gl/OpenGL.hpp>
 
 namespace csoh {
     

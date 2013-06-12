@@ -26,12 +26,14 @@
 #include <csoh/Exception.hpp>
 
 using csoh::glRenderContext;
-using csoh::Exception;
+using csoh::StaticException;
+
 
 /**
 * Create new OpenGL renderer
 */
-glRenderContext::glRenderContext()
+glRenderContext::glRenderContext(RenderContext& rootRenderContext)
+	: rootRenderContext_(rootRenderContext)
 {
     //initialize stuff which doesnt require opengl context
 }
@@ -49,6 +51,15 @@ glRenderContext::~glRenderContext()
 */
 void glRenderContext::initialize()
 {
+	//check for openGL context
+	// wglGetCurrentContext
+	// glxGetCurrentContext
+	// CGLGetCurrentContext
+	
+	//fix gl3w usage for multiple render threads
+	//lock init here
+	// remove parsing from glewInit() ?
+	
     static bool static_init = false;
     
     //Get only one initialized in whole program
@@ -58,12 +69,12 @@ void glRenderContext::initialize()
         
         if (gl3wInit()) 
         {
-            throw Exception("Failed to initialized gl3w, Missing OpenGL Context?");
+            throw StaticException("Failed to initialized gl3w, Missing OpenGL Context?");
         }
         
-        if (!gl3wIsSupported(3, 2)) 
+        if (!gl3wIsSupported(3, 0)) 
         {
-            throw Exception("OpenGL > 3.2 required");
+            throw StaticException("OpenGL >= 3.0 required");
         }
         
     }
@@ -89,9 +100,6 @@ void glRenderContext::resize(int x, int y, int width, int height)
 
     //glMatrixMode(GL_PROJECTION);
     //glLoadIdentity();
-    
-    //near/far clipping?
-    gluPerspective(45.0, width/height, 1, 1000);
 
     //glMatrixMode(GL_MODELVIEW);
     //glLoadIdentity();

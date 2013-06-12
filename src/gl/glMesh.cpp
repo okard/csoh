@@ -23,7 +23,7 @@
 */
 #include <csoh/gl/glMesh.hpp>
 
-#include <csoh/gl/GL.hpp>
+#include <csoh/gl/OpenGL.hpp>
 
 using csoh::glMesh;
 
@@ -50,7 +50,6 @@ void glMesh::loadData(VertexFormat format, const void* data, int length)
 {
     //length vs count
     
-    vao.bind();
     vertexArray.bind();
     
     //.setBufferData(const void *bufferData, GLsizei bufferSize, GLenum usage);
@@ -83,7 +82,6 @@ void glMesh::loadData(VertexFormat format, const void* data, int length)
 */
 void glMesh::render()
 {
-    vao.bind();
     //glDrawElements(GL_TRIANGLE_STRIP,  4, GL_UNSIGNED_SHORT,  (void*)0);
     
     //glDrawArrays(GL_QUADS, 0, buffer.length);  //  Ausgabe

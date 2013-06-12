@@ -25,11 +25,13 @@
 #ifndef __CSOH_GLRENDERER_HPP__
 #define __CSOH_GLRENDERER_HPP__
 
-#include <csoh/gl/GL.hpp>
+#include <csoh/gl/OpenGL.hpp>
 
 #include <csoh/gl/glState.hpp>
 
 namespace csoh {
+
+class RenderContext;
 
 class glBufferObject;
 
@@ -43,15 +45,14 @@ private:
     /// Is Render Initialized
     bool initialized;
     
-    /// OpenGL State
-    glState state;
+    RenderContext& rootRenderContext_;
     
 public:
 
     /**
     * Create new OpenGL renderer
     */
-    glRenderContext();
+    glRenderContext(RenderContext& rootRenderContext);
     
     /**
     * Destroy OpenGL renderer

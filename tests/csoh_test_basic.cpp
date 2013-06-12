@@ -98,13 +98,12 @@ int main(int argc, char *argv[])
     glutCreateWindow("CSOH Test");
     
     test.init();
-    glutReshapeWindow(1024, 768);
-    
-
     //Set Callback Function and start main loop
     glutReshapeFunc(&reshape);
     glutKeyboardFunc(&keyboard);
     glutDisplayFunc(&display);
+    
+	glutReshapeWindow(1024, 768);
     glutMainLoop();
     
     return 0;

@@ -39,7 +39,7 @@ private:
     
     //TODO use long not float 
     /// Last time value
-    float lastTime;
+    long lastTime;
     
 public:
     /**
@@ -75,7 +75,7 @@ public:
     /**
     * Elapsed time
     */
-    float time(bool reset = false);
+    long time(bool reset = false);
     
     /**
     * Is the timer running or stopped

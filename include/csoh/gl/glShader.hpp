@@ -25,7 +25,7 @@
 #ifndef __CSOH_GLSHADER_HPP__
 #define __CSOH_GLSHADER_HPP__
 
-#include "GL.hpp"
+#include <csoh/gl/OpenGL.hpp>
 
 namespace csoh {
   

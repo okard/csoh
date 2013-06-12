@@ -39,11 +39,11 @@ using csoh::Timer;
 /**
 * get time posix
 */
-static float getTimeMS()
+static long getTimeMS()
 {
     timespec curTime;
     clock_gettime(CLOCK_REALTIME, &curTime);
-    return curTime.tv_sec*1000.0f + curTime.tv_nsec/1000000.0f;
+    return curTime.tv_sec*1000 + curTime.tv_nsec/1000000;
 }
 #endif
 
@@ -125,13 +125,13 @@ void Timer::reset()
 /**
 * Elapsed time in ms
 */
-float Timer::time(bool reset)
+long Timer::time(bool reset)
 {
     if(!running)
-        return .0f;
+        return 0;
     
     //get cur time and subtract
-    float t = getTimeMS() - lastTime;
+    long t = getTimeMS() - lastTime;
     
     if(reset)
         this->reset();

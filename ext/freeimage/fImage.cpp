@@ -26,7 +26,7 @@
 #include <csoh/Exception.hpp>
 
 using csoh::fImage;
-using csoh::Exception;
+using csoh::StaticException;
 
 
 /// Read in image
@@ -45,7 +45,7 @@ void fImage::read(const char* filename)
         fif = FreeImage_GetFIFFromFilename(filename);
     //if still unkown, return failure
     if(fif == FIF_UNKNOWN)
-        throw Exception("FreeImage can't detect image file type");
+        throw StaticException("FreeImage can't detect image file type");
 
     //check that the plugin has reading capabilities and load the file
     if(FreeImage_FIFSupportsReading(fif))
@@ -53,7 +53,7 @@ void fImage::read(const char* filename)
     
     //if the image failed to load, return failure
     if(!dib)
-        throw Exception("FreeImage can't read image file");
+        throw StaticException("FreeImage can't read image file");
 
     //retrieve the image data
     bits = FreeImage_GetBits(dib);
@@ -65,7 +65,7 @@ void fImage::read(const char* filename)
     
     //if this somehow one of these failed (they shouldn't), return failure
     if((bits == 0) || (mWidth == 0) || (mHeight == 0))
-        throw Exception("FreeImage can't read image file");
+        throw StaticException("FreeImage can't read image file");
 }
 
 /// Clear Memory

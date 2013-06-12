@@ -26,7 +26,7 @@
 #include <csoh/Exception.hpp>
 #include <iostream>
 
-using csoh::Exception;
+using csoh::StaticException;
 using csoh::glShader;
 using csoh::glProgram;
 
@@ -66,7 +66,7 @@ void glShader::compile(const char* src)
     {
         std::cerr << "Failed to compile: \n" << src << std::endl;
         //TODO get error log
-        throw Exception("Failed to compile shader see stderr for more information");
+        throw StaticException("Failed to compile shader see stderr for more information");
     }
 }
 
@@ -118,7 +118,7 @@ void glProgram::link()
     {
         std::cerr << "Failed to link shade program:\n" << std::endl;
         //TODO get error log
-        throw Exception("Failed to link shader program see stderr for more information");
+        throw StaticException("Failed to link shader program see stderr for more information");
     }
 }
 

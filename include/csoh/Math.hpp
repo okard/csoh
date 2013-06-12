@@ -46,7 +46,8 @@ static inline T clamp(T value, T max, T min)
     return value;
 }
 
-
+namespace math = glm;
+typedef math::mat4 Matrix4f;
     
 } //end namespace csoh
 

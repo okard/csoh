@@ -28,8 +28,8 @@
 //OpenGL Includes with GLEW
 #include <csoh/gl/gl3w.h>
 #include <csoh/gl/gl3.h>
-#include <GL/gl.h>
-#include <GL/glu.h>
+//#include <GL/gl.h>
+//#include <GL/glu.h>
 
 
 #endif // __CSOH_GL_HPP__

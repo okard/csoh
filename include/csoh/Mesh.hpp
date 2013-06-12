@@ -38,8 +38,9 @@ private:
     /// OpenGL Mesh Format
     glMesh mesh;
     
-public:
+    //material
     
+public:
     
     //load vertexes?
     //directly?
@@ -55,7 +56,8 @@ public:
     //get Material
 };
     
-    
+// Mesh<VertexFormat>
+
     
 } //end namespace csoh
 
