@@ -71,6 +71,8 @@ public:
 */
 class glProgram
 {
+	friend class glUniform;
+	    
 private:
     /// Program Id
     GLint progId;
@@ -107,17 +109,6 @@ public:
     * Use shader
     */
     void use();
-    
-    /**
-    * Get uniform parameter location
-    */
-    GLint GetUniformLocation(const char* name);
-    
-    /**
-    * Get attrib parameter location
-    */
-    GLint GetAttribLocation(const char* name);
-    
     
     //glGetProgrami
     //GL_ACTIVE_ATTRIBUTES

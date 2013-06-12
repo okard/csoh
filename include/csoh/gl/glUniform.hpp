@@ -25,10 +25,13 @@
 #ifndef __CSOH_GLUNIFORM_HPP__
 #define __CSOH_GLUNIFORM_HPP__
 
-#include <csoh/gl/GL.hpp>
+#include <csoh/Math.hpp>
+#include <csoh/gl/OpenGL.hpp>
 
 
 namespace csoh {
+	
+class glProgram;
  
 /**
 * OpenGL 2D Texture 
@@ -40,15 +43,14 @@ private:
      
 public:
 
-	void bind(glShader& shader, const char* name);
-	
+	void bind(glProgram& shader, const char* name);
 	
 	//glUniform{1|2|3|4}{f|i|ui}
 	//glUniform{1|2|3|4}{f|i|ui}v
 	//glUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv
     
     //glUniformMatrix4fv
-    //set(const Matrix4f mat);
+    void set(const Matrix4f mat);
 };
     
 } //end namespace csoh

@@ -30,12 +30,12 @@ namespace csoh {
 /**
 * Available Vertex Formats
 */    
-enum VertexFormat
+enum class VertexFormat
 {
     ///SV Simple vertex 
-    SimpleVertex,
+    Vertex,
     ///SCV Simple Vertex with Color
-    SimpleVertexColor,
+    VertexColor,
     ///VT Vertex with texture coords
     VertexTexture,
     ///VNT Vertex with texture and normal coords

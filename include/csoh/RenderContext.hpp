@@ -49,8 +49,10 @@ private:
     //Textures are for one Context?
     
     //model view projection matrix in seperate structure?
-    Matrix4f modelMatrix;
-    Matrix4f viewMatrix;
+    Matrix4f viewMatrix_;
+    Matrix4f projectionMatrix_;
+    
+    //Matrix4f 
 
     //View
     //[Camera]

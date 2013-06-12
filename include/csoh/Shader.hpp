@@ -35,6 +35,9 @@ namespace csoh {
 class ShaderProgram
 {
 private:
+	///multiple shader?
+	//List<glShader> shader;
+	
     /// Vertex Shader
     glShader vertex;
     /// Fragment Shader
@@ -52,6 +55,7 @@ public:
     ~ShaderProgram();
     
     /// Load Shader from Memory
+    //TODO fixit to use multiple vertex fragment shader
     void load(const char* vertex, const char* fragment);
     
     /// Load Shader from File

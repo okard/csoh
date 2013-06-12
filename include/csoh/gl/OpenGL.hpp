@@ -25,9 +25,11 @@
 #ifndef __CSOH_GL_HPP__
 #define __CSOH_GL_HPP__
 
+//Split in definition and functions
+
 //OpenGL Includes with GLEW
-#include <csoh/gl/gl3w.h>
 #include <csoh/gl/gl3.h>
+#include <csoh/gl/gl3w.h>
 //#include <GL/gl.h>
 //#include <GL/glu.h>
 

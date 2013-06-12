@@ -130,21 +130,3 @@ void glProgram::use()
     glUseProgram(progId);
 }
 
-/**
-* Get uniform parameter location
-*/
-GLint glProgram::GetUniformLocation(const char* name)
-{
-    return glGetUniformLocation(progId, name);
-}
-
-
-/**
-* Get attrib parameter location
-* Only for VertexShader?
-*/
-GLint glProgram::GetAttribLocation(const char* name)
-{
-    return glGetAttribLocation(progId, name);
-}
-

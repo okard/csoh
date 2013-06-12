@@ -21,57 +21,29 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
 */
-#pragma once
-#ifndef __CSOH_MESH_HPP__
-#define __CSOH_MESH_HPP__
+#include <csoh/gl/glUniform.hpp>
+#include <csoh/gl/glShader.hpp>
 
-#include <csoh/Math.hpp>
-#include <csoh/gl/glMesh.hpp>
+#include <csoh/Exception.hpp>
+
+using namespace csoh;
 
 
-namespace csoh {
-    
-/**
-* Represents a Mesh
-*/    
-class Mesh
+void glUniform::bind(glProgram& shader, const char* name)
 {
-private:
-    /// OpenGL Mesh Format
-    glMesh mesh;
-    
-    //Material
-    Material mat_;
-    
-    // Positioning and so on
-    Vec3f position_; //position in 3d world
-    Quatf rotation_; //rotation
-    Vec3f size_;	 //size and scaling	0,0,0 bottm left front egde size_(x,y,z) 
-					 //the upper right back point spanning a block
-    
-public:
-    
-    //load vertexes?
-    //directly?
-    //index elements?
-    
-    //set texture
-    
-    //load(
-    
-    /**
-    * Render Mesh
-    */
-    void render();
-    
-    //get Material
-};
-    
-// Mesh<VertexFormat>
+	uniformLoc_ = glGetUniformLocation(shader.progId, name);
+	
+	if (uniformLoc_ == -1) 
+		throw StaticException("Can't bind uniform");
+}
 
+//only ptr types with Vec2f and so on formats
+//glUniform{1|2|3|4}{f|i|ui}
+//glUniform{1|2|3|4}{f|i|ui}v
+//glUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv
     
-} //end namespace csoh
 
-
-
-#endif // __CSOH_MESH_HPP__
+void glUniform::set(const Matrix4f mat)
+{
+	glUniformMatrix4fv(uniformLoc_, 1, GL_FALSE, math::value_ptr(mat));
+}

@@ -26,10 +26,25 @@
 using csoh::Mesh;
 
 
+//glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0, 0.0, -4.0));
+
 /**
 * Render Mesh
 */
 void Mesh::render()
 {
+	Matrix4f modelMatrix(1.0f); //calculate from properties?
+	modelMatrix = math::translate(modelMatrix, position_);
+	modelMatrix = math::scale(modelMatrix, size_);	
+	modelMatrix *= math::toMat4(rotation_);
+	
+	//set uniform projection
+	//set uniform view
+	//set uniform model
+	
+	//set attrib vertexes
+	//set attrib element indexes
+	
+	//draw call
     mesh.render();
 }

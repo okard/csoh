@@ -26,6 +26,12 @@
 #define __CSOH_MATH_HPP__
 
 #include <glm/glm.hpp>
+#include <glm/gtc/quaternion.hpp>
+#include <glm/gtx/quaternion.hpp>
+//seperate header?
+#include <glm/gtc/type_ptr.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+
 
 namespace csoh {
     
@@ -48,6 +54,10 @@ static inline T clamp(T value, T max, T min)
 
 namespace math = glm;
 typedef math::mat4 Matrix4f;
+typedef math::vec2 Vec2f;
+typedef math::vec3 Vec3f;
+typedef math::vec4 Vec4f;
+typedef math::quat Quatf;
     
 } //end namespace csoh
 

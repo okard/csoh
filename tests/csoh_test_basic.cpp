@@ -27,17 +27,17 @@
 #include <csoh/Shader.hpp>
 #include <csoh/Image.hpp>
 #include <csoh/Mesh.hpp>
+#include <csoh/Vertex.hpp>
 #include <ext/freeimage/fImage.hpp>
 
 //CSOH OpenGL Specific
+#include <csoh/gl/OpenGL.hpp>
 #include <csoh/gl/glShaderResources.hpp>
 
 // Create Window
 #include <GL/freeglut.h>
 
-using csoh::RenderContext;
-using csoh::Mesh;
-using csoh::fImage;
+using namespace csoh;
 
 // keyboard events
 void keyboard(unsigned char key, int x, int y);
@@ -45,6 +45,28 @@ void keyboard(unsigned char key, int x, int y);
 void display();
 //reshpare function
 void reshape(int width, int height);
+
+
+static const SVC cube[] = 
+{
+	//x     y      z    r      g    b     a
+	{0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f},//bottom-left-front
+	{1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f},//bottom-right-front
+	{1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f},//bottom-right-back
+	{0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f},//bottom-left-back
+	{0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f},//top-left-front
+	{1.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f},//top-right-front
+	{1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f},//top-right-back
+	{0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f} //top-left-back
+	
+};
+//cube 6 sites each with two triangles each triangle 3 indexes
+// 6*2*3 = 36 indexes front: 1,2,5 2,5,6
+
+static const GLushort cube_index[] = {
+	1,2,5,
+	2,5,6
+};
 
 /**
 * Basic Test

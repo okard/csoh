@@ -30,10 +30,15 @@ using csoh::RenderContext;
 */
 RenderContext::RenderContext()
 	: render_(*this)
+	, viewMatrix_(1.0f)
+	, projectionMatrix_(1.0f)
 {
     //Initialize all Stuff that doesnt require a active graphic context
     
     timer_.start();
+    
+    
+    viewMatrix_ = math::lookAt(Vec3f(0.0, 2.0, 0.0), Vec3f(0.0, 0.0, -4.0), Vec3f(0.0, 1.0, 0.0));
 }
 
 /**
@@ -59,6 +64,7 @@ void RenderContext::init()
 void RenderContext::resize(int x, int y, int width, int height)
 {
     render_.resize(x, y, width, height);
+    projectionMatrix_ = math::perspective(45.0f, 1.0f*width/height, 0.1f, 10.0f);
 }
 
 /**

@@ -70,6 +70,9 @@ public:
     */
     void loadData(VertexFormat format, const void* data, int length);
     
+    //load elementindexes
+    
+    
     /**
     * Render Mesh
     */
