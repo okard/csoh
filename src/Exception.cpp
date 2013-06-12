@@ -21,65 +21,38 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
 */
-#pragma once
-#ifndef __CSOH_EXCEPTION_HPP__
-#define __CSOH_EXCEPTION_HPP__
+#include <csoh/Exception.hpp>
 
-#include <exception>
+#include <cstdarg>
+#include <cstdio>
 
-namespace csoh {
+using namespace csoh;
 
 /**
-* Engine Exception
+* Constructor
 */
-class StaticException : public std::exception
+FormatException::FormatException(const char* msg, ...)
 {
-    private:
-        /// exception msg
-        const char* msg;
-    
-    public:
-        /**
-        * Constructor
-        */
-        StaticException(const char* msg)
-            : msg(msg)
-        {
-        }
-        
-        /**
-        * Description
-        */
-        virtual const char* what() const throw()
-        {
-            return msg;
-        }
-};
+	va_list argument_list;
+	va_start(argument_list, msg);
+	
+	int len = vsnprintf(msg_, buf_size - 2, msg, argument_list);  
+	if(len < 0 || len > buf_size - 2)  
+	{
+		len = buf_size - 2;
+	}
+	msg_[len] = '\0';
 
-//FormatException
-class FormatException
+	va_end(argument_list);
+}
+
+FormatException::~FormatException()
 {
-private:
-	static const int buf_size = 1024;
-    char msg_[buf_size];
+}
 
-public:
-    /**
-    * Constructor
-    */
-    FormatException(const char* msg, ...);
-    
-    /**
-    * Destructor
-    */
-    ~FormatException();
-    
-    /**
-    * Description
-    */
-    virtual const char* what() const throw();
-};
-        
-} //end namespace csoh
+const char* FormatException::what() const throw()
+{
+	return msg_;
+}
 
-#endif //__CSOH_EXCEPTION_HPP__
+
