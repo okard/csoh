@@ -22,71 +22,48 @@
     THE SOFTWARE.
 */
 #pragma once
-#ifndef __CSOH_GLVERTEXBUFFER_HPP__
-#define __CSOH_GLVERTEXBUFFER_HPP__
+#ifndef __CSOH_GLATTRIB_HPP__
+#define __CSOH_GLATTRIB_HPP__
 
 #include <csoh/gl/OpenGL.hpp>
 
 namespace csoh {
-    
-//forward declaration
-class glRenderContext;
-
+	
+class glProgram;
+ 
 /**
-* OOP Wrapper for Buffer Objects
+* OpenGL Shader Attrib Parameter
 */
-class glBufferObject
+class glAttrib
 {
 private:
-    /// Buffer id
-    GLuint vboId;
-    
-    /// Buffer Type
-    GLenum type; 
+    GLuint attribLoc_;
+     
 public:
+    /**
+    * Create a new OpenGL Texture
+    */
+    glAttrib();
     
     /**
-    * Create new Vertex Buffer Object
+    * Destructs Texture
     */
-    glBufferObject(glRenderContext* ctx, GLenum type);
-
-    /**
-    * Create new Vertex Buffer Object
-    */
-    glBufferObject(GLenum type);
+    ~glAttrib();
+   
+   
+	void bind(glProgram& shader, const char* name);
+	
+	//enable
+	//disable
+	
+	//Vertex Array Object to store glVertexAttribPointer information
+	//set(const BufferObject& bo)
+	//setFormat
+	//glVertexAttribPointer
     
-    /**
-    * Destructs Vertex Buffer Object
-    */
-    ~glBufferObject();
-    
-    /**
-    * Bind Vertex Buffer (adding context to manage?)
-    */
-    void bind();
-    
-    /**
-    * Set Buffer Data
-    */
-    void setBufferData(const void *bufferData, GLsizei bufferSize, GLenum usage);
-    
-    /**
-    * Update Buffer Data
-    */
-    void updateBufferData(GLintptr  offset, const void *bufferData, GLsizei bufferSize);
-    
-    /**
-    * Map Buffer
-    */
-    void* map(GLenum access);
-
-    /**
-    * Unmap Buffer
-    */
-    void unmap();
 };
     
 } //end namespace csoh
 
 
-#endif //__CSOH_GLVERTEXBUFFER_HPP__
+#endif // __CSOH_GLTEXTURE_HPP__

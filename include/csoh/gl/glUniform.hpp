@@ -34,7 +34,7 @@ namespace csoh {
 class glProgram;
  
 /**
-* OpenGL 2D Texture 
+* A Shader Uniform Parameter
 */
 class glUniform
 {
@@ -45,11 +45,7 @@ public:
 
 	void bind(glProgram& shader, const char* name);
 	
-	//glUniform{1|2|3|4}{f|i|ui}
-	//glUniform{1|2|3|4}{f|i|ui}v
-	//glUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv
-    
-    //glUniformMatrix4fv
+
     void set(const Matrix4f mat);
 };
     
