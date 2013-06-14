@@ -21,45 +21,32 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
 */
-#pragma once
-#ifndef __CSOH_MATH_HPP__
-#define __CSOH_MATH_HPP__
+#include <csoh/gl/glShaderAttribute.hpp>
 
-#include <glm/glm.hpp>
-#include <glm/gtc/quaternion.hpp> //also to MathFunction Header?
-#include <glm/gtx/quaternion.hpp>
-//seperate header?
-#include <glm/gtc/type_ptr.hpp>
-#include <glm/gtc/matrix_transform.hpp>
+#include <csoh/Exception.hpp>
+#include <csoh/gl/glShaderProgram.hpp>
 
-
-namespace csoh {
-    
-//=============================================================================
-// Utility Functions
-//=============================================================================
+using namespace csoh;
 
 /**
-* Clamp Value 
-*/    
-template<typename T>
-static inline T clamp(T value, T max, T min)
+* Create a new OpenGL Texture
+*/
+glShaderAttribute::glShaderAttribute()
+	: attribLoc_(-1)
 {
-    if(value > max)
-        return max;
-    if(value < min)
-        return min;
-    return value;
 }
-
-namespace math = glm;
-typedef math::mat4 Matrix4f;
-typedef math::vec2 Vec2f;
-typedef math::vec3 Vec3f;
-typedef math::vec4 Vec4f;
-typedef math::quat Quatf;
     
-} //end namespace csoh
+/**
+* Destructs Texture
+*/
+glShaderAttribute::~glShaderAttribute()
+{
+}
+   
+void glShaderAttribute::bind(glShaderProgram& shader, const char* name)
+{
+	attribLoc_ = glGetAttribLocation(shader.progId, name);
 
-
-#endif // __CSOH_MATH_HPP__
+	if (attribLoc_ == -1) 
+		throw StaticException("Can't bind attribute");
+}

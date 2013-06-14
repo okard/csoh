@@ -52,6 +52,8 @@ private:
     
     /// Shader Parameter
     
+    //voa? here or in attrib
+    //ShaderAttributeBind<VertexBufferObject<VertexFormat>>
     
 public:
     

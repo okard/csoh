@@ -36,6 +36,10 @@ class glParticleEmitter
 private:
     
 public:
+
+	//TODO Point Sprites
+	
+	// You use gl_PointCoord in your fragment shader.
     
 };
       

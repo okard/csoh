@@ -101,7 +101,7 @@ public:
     
     void reshape(int width, int height)
     {
-        ctx.resize(0, 0, width, height);
+        ctx.resize(width, height);
     }
     
     

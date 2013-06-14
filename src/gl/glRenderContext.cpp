@@ -96,7 +96,7 @@ void glRenderContext::resize(int x, int y, int width, int height)
     if (height==0)
         height=1;
 
-    glViewport(0, 0, width, height);
+    glViewport(x, y, width, height);
 
     //glMatrixMode(GL_PROJECTION);
     //glLoadIdentity();

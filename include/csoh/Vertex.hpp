@@ -42,6 +42,7 @@ enum class VertexFormat
     VertexTextureNormal,
 };
 
+//TODO use VecXf formats?
 
 /**
 * Simple Vertex Structure

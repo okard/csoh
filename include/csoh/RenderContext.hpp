@@ -42,20 +42,25 @@ private:
     //NOTICE: This can be replace with an dxRenderer for a DirectX-Build
     glRenderContext render_;
     
+    //Timer required here?
     /// Timer
     Timer timer_;
+    
     
     //Shared Texture Manager?
     //Textures are for one Context?
     
     //model view projection matrix in seperate structure?
-    Matrix4f viewMatrix_;
-    Matrix4f projectionMatrix_;
+		//model matrix defines position of model in 3d world
+		
+    Matrix4f viewMatrix_;			//camera position in 3d world
+    Matrix4f projectionMatrix_;		//from 3d world to 2d world 
     
-    //Matrix4f 
-
-    //View
-    //[Camera]
+    //glShaderUniform<Matrix4f>  viewMatrix_;
+    
+    //xpos/xypos required?
+    int widthpx_;
+    int heightpx_;
     
 public:
     /**
@@ -77,7 +82,7 @@ public:
     /**
     * Resize Render Viewport
     */
-    void resize(int x, int y, int width, int height);
+    void resize(int width, int height);
     
     /**
     * Start Render Scene
@@ -97,6 +102,9 @@ public:
     //- FPS
     
     //Resource Manager
+    
+    
+    //loadMaterial()?
     
     /**
     * Exists a valid render context?

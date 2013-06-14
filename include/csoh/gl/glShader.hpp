@@ -34,7 +34,7 @@ namespace csoh {
 */
 class glShader
 {
-    friend class glProgram;
+    friend class glShaderProgram;
     
 private:
     /// Shader Id

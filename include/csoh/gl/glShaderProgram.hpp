@@ -34,9 +34,10 @@ class glShader;
 /**
 * OpenGL Shader Program
 */
-class glProgram
+class glShaderProgram
 {
 	friend class glShaderUniform;
+	friend class glShaderAttribute;
 	    
 private:
     /// Program Id
@@ -48,12 +49,12 @@ public:
     /**
     * Create new opengl shader program
     */
-    glProgram();
+    glShaderProgram();
     
     /**
     * Destructs opengl shader program
     */
-    ~glProgram();
+    ~glShaderProgram();
     
     /**
     * Attach a shader to program

@@ -22,19 +22,19 @@
     THE SOFTWARE.
 */
 #pragma once
-#ifndef __CSOH_GLATTRIB_HPP__
-#define __CSOH_GLATTRIB_HPP__
+#ifndef __CSOH_GLSHADERATTRIB_HPP__
+#define __CSOH_GLSHADERATTRIB_HPP__
 
 #include <csoh/gl/OpenGL.hpp>
 
 namespace csoh {
 	
-class glProgram;
+class glShaderProgram;
  
 /**
 * OpenGL Shader Attrib Parameter
 */
-class glAttrib
+class glShaderAttribute
 {
 private:
     GLuint attribLoc_;
@@ -43,15 +43,15 @@ public:
     /**
     * Create a new OpenGL Texture
     */
-    glAttrib();
+    glShaderAttribute();
     
     /**
     * Destructs Texture
     */
-    ~glAttrib();
+    ~glShaderAttribute();
    
    
-	void bind(glProgram& shader, const char* name);
+	void bind(glShaderProgram& shader, const char* name);
 	
 	//enable
 	//disable

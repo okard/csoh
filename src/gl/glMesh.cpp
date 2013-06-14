@@ -82,6 +82,8 @@ void glMesh::loadData(VertexFormat format, const void* data, int length)
 */
 void glMesh::render()
 {
+	
+	//glDrawElements using element indeces binded buffer?
     //glDrawElements(GL_TRIANGLE_STRIP,  4, GL_UNSIGNED_SHORT,  (void*)0);
     
     //glDrawArrays(GL_QUADS, 0, buffer.length);  //  Ausgabe

@@ -65,6 +65,8 @@ public:
     */
     void bind();
     
+    //static void unbind(GLenum type);
+    
     /**
     * Set Buffer Data
     */
@@ -85,6 +87,13 @@ public:
     */
     void unmap();
 };
+
+
+//templated bufferObject
+
+//vertex formate
+//Vec2f, Vec3f, etc
+
     
 } //end namespace csoh
 

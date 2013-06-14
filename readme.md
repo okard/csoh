@@ -24,6 +24,7 @@ TODOs
 * Complete Shader Handling
 * Add Sprite
 * Add GLFW/SDL2 Basic Framework
+* Think about render context for texture?  (see sfml2 interface)
 
 
 Milestone 1:

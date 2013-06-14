@@ -31,7 +31,7 @@
 using namespace csoh;
 
 
-void glShaderUniform::bind(glProgram& shader, const char* name)
+void glShaderUniform::bind(glShaderProgram& shader, const char* name)
 {
 	uniformLoc_ = glGetUniformLocation(shader.progId, name);
 	

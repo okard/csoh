@@ -44,9 +44,11 @@ private:
     /// Fragment Shader
     glShader fragment;
     /// Shader Program
-    glProgram program;
+    glShaderProgram program;
     
     //TODO Multiple Shader?
+    
+    //save binded paramters for use call to reset?
         
 public:
     /// Create new Shader
@@ -54,6 +56,11 @@ public:
     
     /// Destruct shader
     ~ShaderProgram();
+    
+    //loadFrag
+    //loadFragFromFile
+    
+    //attach shader parameter?
     
     /// Load Shader from Memory
     //TODO fixit to use multiple vertex fragment shader
@@ -66,8 +73,6 @@ public:
     /// Activate Shader Program
     void use();
     
-
-
 	//attrib 
 
     //get list with parameters?

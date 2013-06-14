@@ -31,7 +31,7 @@
 
 namespace csoh {
 	
-class glProgram;
+class glShaderProgram;
  
 /**
 * A Shader Uniform Parameter
@@ -43,8 +43,10 @@ private:
      
 public:
 
-	void bind(glProgram& shader, const char* name);
+	void bind(glShaderProgram& shader, const char* name);
 	
+	
+	//is bind
 
     void set(const Matrix4f mat);
 };
@@ -54,12 +56,16 @@ template<typename T>
 class glUniformBind : private glShaderUniform
 {
 private:
-	T& value_;
+	T value_;
 	
 public:
-	glUniformBind(glProgram& shader, T& value, const char* name);
+	glUniformBind(glShaderProgram& shader, const char* name);
 	
-	void push();
+	void update(T value);
+	void update();
+	
+	
+	inline const T& getValue() const { return value_; }
 }; 
     
     

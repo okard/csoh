@@ -38,6 +38,7 @@ RenderContext::RenderContext()
     timer_.start();
     
     
+    //TODO explain
     viewMatrix_ = math::lookAt(Vec3f(0.0, 2.0, 0.0), Vec3f(0.0, 0.0, -4.0), Vec3f(0.0, 1.0, 0.0));
 }
 
@@ -61,9 +62,13 @@ void RenderContext::init()
 /**
 * Resize Render Viewport
 */
-void RenderContext::resize(int x, int y, int width, int height)
+void RenderContext::resize(int width, int height)
 {
-    render_.resize(x, y, width, height);
+	widthpx_ = width;
+	heightpx_ = heightpx_;
+    render_.resize(0, 0, width, height);
+    
+    //TODO explain
     projectionMatrix_ = math::perspective(45.0f, 1.0f*width/height, 0.1f, 10.0f);
 }
 
