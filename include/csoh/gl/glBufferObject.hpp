@@ -39,7 +39,7 @@ class glBufferObject
 {
 private:
     /// Buffer id
-    GLuint vboId;
+    GLuint boId;
     
     /// Buffer Type
     GLenum type; 
@@ -65,8 +65,6 @@ public:
     */
     void bind();
     
-    //static void unbind(GLenum type);
-    
     /**
     * Set Buffer Data
     */
@@ -86,10 +84,28 @@ public:
     * Unmap Buffer
     */
     void unmap();
+    
+    /**
+    * is buffer binded
+    */
+    bool isBinded();
+    
+    /**
+    * Unbind a buffer type
+    */
+    static void unbind(GLenum type);
+      
+    /**
+    * Get size
+    */
+    static int getSize(GLenum type);
 };
 
 
 //templated bufferObject
+
+//class glVertexBufferObject
+//
 
 //vertex formate
 //Vec2f, Vec3f, etc

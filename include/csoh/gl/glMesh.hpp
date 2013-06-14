@@ -41,6 +41,8 @@ class glMesh
 {
 private:
     
+    //multiple vertex arrays?
+    
     /// Vertex Array
     glBufferObject vertexArray;
  

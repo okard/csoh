@@ -43,6 +43,12 @@ private:
     //Material
     Material mat_;
     
+    
+    //TODO move this to model
+    //model refs mesh to position 
+    //a mesh is static
+    //think about bone animations
+    
     // Positioning and so on
     Vec3f position_; //position in 3d world
     Quatf rotation_; //rotation

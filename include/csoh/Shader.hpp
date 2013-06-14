@@ -28,6 +28,8 @@
 #include <csoh/gl/glShader.hpp>
 #include <csoh/gl/glShaderProgram.hpp>
 
+#include <vector>
+
 namespace csoh {
 
 /**
@@ -38,6 +40,7 @@ class ShaderProgram
 private:
 	///multiple shader?
 	//List<glShader> shader;
+	std::vector<glShader> shader_;
 	
     /// Vertex Shader
     glShader vertex;
@@ -57,23 +60,19 @@ public:
     /// Destruct shader
     ~ShaderProgram();
     
-    //loadFrag
-    //loadFragFromFile
     
-    //attach shader parameter?
+    void loadFrag(const char* shaderSrc);
+    void loadFragFromFile(const char* shaderFilename);
     
-    /// Load Shader from Memory
-    //TODO fixit to use multiple vertex fragment shader
-    void load(const char* vertex, const char* fragment);
+    void loadVert(const char* shaderSrc);
+    void loadVertFromFile(const char* shaderFilename);
     
-    /// Load Shader from File
-    //TODO fixit to use multiple vertex fragment shader
-    void loadFromFile(const char* vertexShaderFile, const char* fragmentShaderFile);
     
+    /// link shader
+    void link();
+        
     /// Activate Shader Program
-    void use();
-    
-	//attrib 
+    void use(); 
 
     //get list with parameters?
     //TODO Parameter Handling

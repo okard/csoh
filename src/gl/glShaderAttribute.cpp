@@ -50,3 +50,26 @@ void glShaderAttribute::bind(glShaderProgram& shader, const char* name)
 	if (attribLoc_ == -1) 
 		throw StaticException("Can't bind attribute");
 }
+
+
+void glShaderAttribute::enable()
+{
+	glEnableVertexAttribArray(attribLoc_);
+}
+
+void glShaderAttribute::disable()
+{
+	glDisableVertexAttribArray(attribLoc_);
+}
+
+/*
+  glVertexAttribPointer(
+    attribute_v_color, // attribute
+    3,                 // number of elements per vertex, here (R,G,B)
+    GL_FLOAT,          // the type of each element
+    GL_FALSE,          // take our values as-is
+    0,                 // no extra data between each position
+    0                  // offset of first element
+  );
+
+*/

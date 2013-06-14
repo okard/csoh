@@ -45,6 +45,7 @@ private:
     /// Is Render Initialized
     bool initialized;
     
+    /// root context
     RenderContext& rootRenderContext_;
     
 public:

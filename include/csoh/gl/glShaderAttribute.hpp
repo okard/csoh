@@ -53,15 +53,32 @@ public:
    
 	void bind(glShaderProgram& shader, const char* name);
 	
-	//enable
-	//disable
+	void enable();
+	void disable();
 	
 	//Vertex Array Object to store glVertexAttribPointer information
 	//set(const BufferObject& bo)
 	//setFormat
 	//glVertexAttribPointer
+	
+	//void setup(VertexFormat )
     
 };
+
+
+class glShaderAttributeBind : public glShaderAttribute
+{
+private:
+	//glBufferObject
+	//vertex format
+	
+public:
+	
+	
+};
+
+
+
     
 } //end namespace csoh
 

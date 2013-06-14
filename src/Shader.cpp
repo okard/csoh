@@ -42,29 +42,39 @@ ShaderProgram::ShaderProgram()
 ShaderProgram::~ShaderProgram()
 {
 }
-    
-/**
-* Load Shader
-*/
-void ShaderProgram::load(const char* vertexShader, const char* fragmentShader)
+
+void ShaderProgram::loadFrag(const char* shaderSrc)
 {
-    vertex.compile(vertexShader);
-    fragment.compile(fragmentShader);
-    
-    program.attach(&vertex);
-    program.attach(&fragment);
-    program.link();
+	glShader shader(GL_FRAGMENT_SHADER);
+	shader.compile(shaderSrc);
+	shader_.push_back(shader);
+	program.attach(&shader);
 }
 
-/**
-* Load Shader from File
-*/
-void ShaderProgram::loadFromFile(const char* vertexShaderFile, const char* fragmentShaderFile)
+void ShaderProgram::loadFragFromFile(const char* shaderFilename)
 {
-    csoh::ScopePtr<char> vertexShader(csoh::readfile(vertexShaderFile));
-    csoh::ScopePtr<char> fragmentShader(csoh::readfile(vertexShaderFile));
+	csoh::ScopePtr<char> fragmentShader(csoh::readfile(shaderFilename));
+	loadFrag(fragmentShader.get());
+}
+
+
+void ShaderProgram::loadVert(const char* shaderSrc)
+{
+	glShader shader(GL_VERTEX_SHADER);
+	shader.compile(shaderSrc);
+	shader_.push_back(shader);
+	program.attach(&shader);
+}
+
+void ShaderProgram::loadVertFromFile(const char* shaderFilename)
+{
+	csoh::ScopePtr<char> vertexShader(csoh::readfile(shaderFilename));
+	loadVert(vertexShader.get());
+}
     
-    load(vertexShader.get(), fragmentShader.get());
+void ShaderProgram::link()
+{
+	program.link();
 }
 
 /**

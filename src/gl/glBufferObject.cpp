@@ -33,7 +33,7 @@ glBufferObject::glBufferObject(GLenum type)
 {
     //check for render context
     
-    glGenBuffers(1, &vboId);
+    glGenBuffers(1, &boId);
     
     //TODO check for GL_ARRAY_BUFFER,GL_ELEMENT_ARRAY_BUFFER, GL_PIXEL_PACK_BUFFER, or GL_PIXEL_UNPACK_BUFFER.          
 }
@@ -43,7 +43,7 @@ glBufferObject::glBufferObject(GLenum type)
 */
 glBufferObject::~glBufferObject()
 {
-    glDeleteBuffers(1, &vboId );
+    glDeleteBuffers(1, &boId );
 }
 
 /**
@@ -52,7 +52,7 @@ glBufferObject::~glBufferObject()
 void glBufferObject::bind()
 {
     //TODO Check if already binded
-    glBindBuffer(type, vboId);
+    glBindBuffer(type, boId);
 }
 
 /**
@@ -92,6 +92,55 @@ void glBufferObject::unmap()
     glUnmapBuffer(type);
 }
 
+/**
+* is buffer binded
+*/
+bool glBufferObject::isBinded()
+{
+	GLint bufferId;
+	
+	switch(type)
+	{
+		case GL_ARRAY_BUFFER:
+			glGetIntegerv(GL_ARRAY_BUFFER_BINDING, &bufferId);
+			break;
+		case GL_ELEMENT_ARRAY_BUFFER:
+			glGetIntegerv(GL_ELEMENT_ARRAY_BUFFER_BINDING, &bufferId);
+			break;
+	}
+	
+	return boId == bufferId;
+}
+    
+
+
+
+/**
+* Unbind a buffer type
+*/
+static void unbind(GLenum type)
+{
+	glBindBuffer(type, 0);
+}
+     
+/**
+* Get size
+*/
+int glBufferObject::getSize(GLenum type)
+{
+	int size = 0;
+	switch(type)
+	{
+		case GL_ARRAY_BUFFER:
+			glGetBufferParameteriv(GL_ARRAY_BUFFER, GL_BUFFER_SIZE, &size);
+			break;
+		case GL_ELEMENT_ARRAY_BUFFER:
+			glGetBufferParameteriv(GL_ELEMENT_ARRAY_BUFFER, GL_BUFFER_SIZE, &size);
+			break;
+	}
+
+	return size;
+}
     
     
     
