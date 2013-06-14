@@ -21,15 +21,17 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
 */
-#include <csoh/gl/glUniform.hpp>
-#include <csoh/gl/glShader.hpp>
+#include <csoh/gl/glShaderUniform.hpp>
+
 
 #include <csoh/Exception.hpp>
+#include <csoh/gl/glShaderProgram.hpp>
+
 
 using namespace csoh;
 
 
-void glUniform::bind(glProgram& shader, const char* name)
+void glShaderUniform::bind(glProgram& shader, const char* name)
 {
 	uniformLoc_ = glGetUniformLocation(shader.progId, name);
 	
@@ -43,7 +45,7 @@ void glUniform::bind(glProgram& shader, const char* name)
 //glUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv
     
 
-void glUniform::set(const Matrix4f mat)
+void glShaderUniform::set(const Matrix4f mat)
 {
 	glUniformMatrix4fv(uniformLoc_, 1, GL_FALSE, math::value_ptr(mat));
 }

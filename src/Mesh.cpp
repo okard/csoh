@@ -38,6 +38,7 @@ void Mesh::render()
 	modelMatrix = math::scale(modelMatrix, size_);	
 	modelMatrix *= math::toMat4(rotation_);
 	
+	//Material/Shader binding
 	//set uniform projection
 	//set uniform view
 	//set uniform model

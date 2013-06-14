@@ -3,9 +3,9 @@ csoh - graphic engine
 
 Dependencies
 -----------------
-* [GLEW](http://glew.sourceforge.net/)
+* [gl3w](https://github.com/skaslev/gl3w)
 * [GLM - OpenGL Mathematics](http://glm.g-truc.net/) (Included)
-* OpenGL
+* OpenGL3+
 
 Directory Layout
 -----------------
@@ -18,10 +18,12 @@ Directory Layout
 TODOs
 --------------
 * Implement Primitives Sphere, Cube
+	- Primitive : Mesh 
 * Implement Texture Loading with Image Interface
 * Complete Vertex Buffer Handling
 * Complete Shader Handling
-* Check [GL3W](https://github.com/skaslev/gl3w/wiki)
+* Add Sprite
+* Add GLFW/SDL2 Basic Framework
 
 
 Milestone 1:

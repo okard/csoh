@@ -26,6 +26,7 @@
 #define __CSOH_SHADER_HPP__
 
 #include <csoh/gl/glShader.hpp>
+#include <csoh/gl/glShaderProgram.hpp>
 
 namespace csoh {
 

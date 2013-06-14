@@ -60,64 +60,8 @@ public:
     * Compile Shader
     */
     void compile(const char* src); 
-    
-    //glUniform1f
-    
-    //TODO Parameter Handling
 };
 
-/**
-* OpenGL Shader Program
-*/
-class glProgram
-{
-	friend class glUniform;
-	    
-private:
-    /// Program Id
-    GLint progId;
-    
-    ///TODO Internal State tracker? Empty, Pending, Valid
-    
-public:
-    /**
-    * Create new opengl shader program
-    */
-    glProgram();
-    
-    /**
-    * Destructs opengl shader program
-    */
-    ~glProgram();
-    
-    /**
-    * Attach a shader to program
-    */
-    void attach(glShader* shader);
-    
-    /**
-    * Detach shader from program
-    */
-    void detach(glShader* shader);
-    
-    /**
-    * Link shader
-    */
-    void link();
-    
-    /**
-    * Use shader
-    */
-    void use();
-    
-    //glGetProgrami
-    //GL_ACTIVE_ATTRIBUTES
-    //GL_ACTIVE_ATTRIBUTE_MAX_LENGTH
-    //GL_ACTIVE_UNIFORMS
-    //GL_ACTIVE_UNIFORM_MAX_LENGTH
-    //glGetActiveAttrib
-    //glGetActiveUniform
-};
     
     
 } //end namespace csoh

@@ -22,58 +22,49 @@
     THE SOFTWARE.
 */
 #pragma once
-#ifndef __CSOH_MESH_HPP__
-#define __CSOH_MESH_HPP__
+#ifndef __CSOH_GLUNIFORM_HPP__
+#define __CSOH_GLUNIFORM_HPP__
 
 #include <csoh/Math.hpp>
-#include <csoh/gl/glMesh.hpp>
+#include <csoh/gl/OpenGL.hpp>
 
 
 namespace csoh {
-    
+	
+class glProgram;
+ 
 /**
-* Represents a Mesh
-*/    
-class Mesh
+* A Shader Uniform Parameter
+*/
+class glShaderUniform
 {
 private:
-    /// OpenGL Mesh Format
-    glMesh mesh;
-    
-    //Material
-    Material mat_;
-    
-    // Positioning and so on
-    Vec3f position_; //position in 3d world
-    Quatf rotation_; //rotation
-    Vec3f size_;	 //size and scaling	0,0,0 bottm left front egde size_(x,y,z) 
-					 //the upper right back point spanning a block
-    
-    //shader bindings?
-    
+    GLuint uniformLoc_;
+     
 public:
-    
-    //load vertexes?
-    //directly?
-    //index elements?
-    
-    //set texture
-    
-    //load(
-    
-    /**
-    * Render Mesh
-    */
-    void render();
-    
-    //get Material
+
+	void bind(glProgram& shader, const char* name);
+	
+
+    void set(const Matrix4f mat);
 };
     
-// Mesh<VertexFormat>
-
+  
+template<typename T> 
+class glUniformBind : private glShaderUniform
+{
+private:
+	T& value_;
+	
+public:
+	glUniformBind(glProgram& shader, T& value, const char* name);
+	
+	void push();
+}; 
+    
+    
     
 } //end namespace csoh
 
 
-
-#endif // __CSOH_MESH_HPP__
+#endif // __CSOH_GLUNIFORM_HPP__

@@ -45,6 +45,12 @@ private:
     //textures
     //normal, spec maps etc
     
+    //shader binding?
+		//textures
+		//normal maps
+		//light
+	//matrices? seperate step?
+    
 public:
     
     /**

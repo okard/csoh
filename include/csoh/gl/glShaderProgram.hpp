@@ -22,34 +22,70 @@
     THE SOFTWARE.
 */
 #pragma once
-#ifndef __CSOH_GLUNIFORM_HPP__
-#define __CSOH_GLUNIFORM_HPP__
+#ifndef __CSOH_GLSHADERPROGRAM_HPP__
+#define __CSOH_GLSHADERPROGRAM_HPP__
 
-#include <csoh/Math.hpp>
 #include <csoh/gl/OpenGL.hpp>
-
 
 namespace csoh {
 	
-class glProgram;
- 
+class glShader;
+
 /**
-* A Shader Uniform Parameter
+* OpenGL Shader Program
 */
-class glUniform
+class glProgram
 {
+	friend class glShaderUniform;
+	    
 private:
-    GLuint uniformLoc_;
-     
-public:
-
-	void bind(glProgram& shader, const char* name);
-	
-
-    void set(const Matrix4f mat);
-};
+    /// Program Id
+    GLint progId;
     
-} //end namespace csoh
+    ///TODO Internal State tracker? Empty, Pending, Valid
+    
+public:
+    /**
+    * Create new opengl shader program
+    */
+    glProgram();
+    
+    /**
+    * Destructs opengl shader program
+    */
+    ~glProgram();
+    
+    /**
+    * Attach a shader to program
+    */
+    void attach(glShader* shader);
+    
+    /**
+    * Detach shader from program
+    */
+    void detach(glShader* shader);
+    
+    /**
+    * Link shader
+    */
+    void link();
+    
+    /**
+    * Use shader
+    */
+    void use();
+    
+    
+    //debug print out all attributes and uniforms available
+    //glGetProgrami
+    //GL_ACTIVE_ATTRIBUTES
+    //GL_ACTIVE_ATTRIBUTE_MAX_LENGTH
+    //GL_ACTIVE_UNIFORMS
+    //GL_ACTIVE_UNIFORM_MAX_LENGTH
+    //glGetActiveAttrib
+    //glGetActiveUniform
+};
 
+}//end namespace csoh
 
-#endif // __CSOH_GLUNIFORM_HPP__
+#endif
